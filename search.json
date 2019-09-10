@@ -1,0 +1,328 @@
+{
+    "programs": [
+        {
+            "code": 1,
+            "name": "Accounting",
+            "degrees": ["Associate of Science: Accounting", "Certificate of Achievement: Accounting", "Certificate of Performance: Governmental/Nonprofit Accounting"],
+            "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate of Performance", "Certificate"],
+            "keywords": ["business administration", "graduate", "curriculum", "accounting", "college", "student", "clerk", "audit", "bookkeeper", "accountant"],
+            "filters": ["STEM"],
+            "aoi": ["area1", "area2"]
+        },
+        {
+            "code": 2,
+            "name": "American Sign Language",
+            "degrees": ["Associate of Arts: American Sign Language Studies", "Associate of Arts: ASL-English Interpretation", "Certificate of Achievement: American Sign Language Studies", "Certificate of Achievement: ASL-English Interpretation"],
+            "degree_types": ["Associate of Arts", "AA", "Certificate of Achievement", "Certificate of Performance", "Certificate"],
+            "keywords": ["asl", "american sign language", "awareness", "interpretation", "deaf", "hard of hearing"],
+            "filters": [""],
+            "aoi": ["area1", "area2"]
+        },
+        {
+            "code": 3,
+            "name": "Animal Health Technology",
+            "degrees": ["Associate of Science: Animal Health Technology"],
+            "degree_types": ["Associate of Science", "AS"],
+            "keywords": ["health", "nursing", "laboratory", "medicine", "animal", "technology", "care"],
+            "filters": ["STEM"],
+            "aoi": ["area3", "area5"]
+        },
+        {
+            "code": 4,
+            "name": "Anthropology",
+            "degrees": ["Associate of Arts: Anthropology", "Associate of Arts for Transfer: Anthropology"],
+            "degree_types": ["Associate of Arts", "AA", "Associate of Arts for Transfer", "ADT"],
+            "keywords": ["anthropology", "sociology", "anthropologist", "cultural", "archaeology", "linguistic", "sociocultural"],
+            "filters": ["STEM"],
+            "aoi": ["area2", "area4"]
+        },
+        {
+            "code": 5,
+            "name": "Architecture",
+            "degrees": ["Associate of Science: Architecture Technician", "Associate of Science: Architecture Design", "Associate of Science: Construction Management", "Associate of Science: Architecture - University Track"],
+            "degree_types": ["Associate of Science", "AS"],
+            "keywords": ["architecture", "art", "construction", "design", "CAD", "environmental design"],
+            "filters": ["Art"],
+            "aoi": ["area1", "area4"]
+        },
+        {
+            "code": 6,
+            "name": "Art - Fine Art",
+            "degrees": ["Associate of Arts: Art History", "Associate of Arts: Ceramics Emphasis", "Associate of Arts: Digital Art Emphasis", "Associate of Arts: Museum Studies", "Associate of Arts: Photography and New Genres Emphasis", "Associate of Arts: Three-Dimensional Emphasis", "Associate of Arts: Two-Dimensional Emphasis", "Associate of Arts for Transfer: Art History", "Associate of Arts for Transfer: Studio Arts", "Certificate of Performance: Fine Art", "Certificate of Performance: Museum Studies"],
+            "degree_types": ["Associate of Arts", "AA", "Associate of Arts for Transfer", "ADT", "Certificate of Performance", "Certificate"],
+            "keywords": ["art", "arts", "photography", "sculpture", "drawing", "ceramics", "fine art"],
+            "filters": ["Art"],
+            "aoi": ["area3", "area5"]
+        },
+        {
+            "code": 7,
+            "name": "Biology",
+            "degrees": ["Associate of Science: Allied Health Track", "Associate of Science: Applied Biology Track", "Associate of Science: Transfer Track", "Certificate of Performance: Applied Biotechnology"],
+            "degree_types": ["Associate of Science", "AS", "Certificate of Performance", "Certificate"],
+            "keywords": ["biology", "chemistry", "biotechnology", "science", "life", "natural", "physical", "chemical", "technician", "biologist", "environment", "medicine"],
+            "filters": ["STEM"],
+            "aoi": ["area1", "area2"]
+        },
+        {
+            "code": 8,
+            "name": "Black Studies",
+            "degrees": ["Associate of Arts: Black Studies"],
+            "degree_types": ["Associate of Arts", "AA"],
+            "keywords": ["black", "humanities", "social science", "culture", "afro-american", "african", "education", "law", "african-american"],
+            "filters": [""],
+            "aoi": ["area2", "area3"]
+        },
+        {
+            "code": 9,
+            "name": "Building Construction Technology",
+            "degrees": ["Associate of Science: Inspection", "Certificate of Achievement: Inspection"],
+            "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
+            "keywords": ["management", "inspection", "building", "estimating", "planning", "construction"],
+            "filters": [""],
+            "aoi": ["area1", "area2"]
+        },
+        {
+            "code": 10,
+            "name": "Business Administration",
+            "degrees": ["Associate of Science: Business Administration", "Associate of Science for Transfer: Business Administration", "Certificate of Achievement: Business Administration"],
+            "degree_types": ["Associate of Science", "AS", "Associate of Science for Transfer", "ADT", "Certificate of Achievement", "Certificate"],
+            "keywords": ["business administration", "law", "communications", "accounting", "economics", "statistics", "systems"],
+            "filters": [""],
+            "aoi": ["area2", "area5"]
+        },
+        {
+            "code": 11,
+            "name": "Business Management",
+            "degrees": ["Associate of Science: Business Management", "Certificate of Achievement: Businss Management"],
+            "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
+            "keywords": ["accounting", "management", "entrepreneurship",  "business", "economics", "marketing"],
+            "filters": [""],
+            "aoi": ["area4", "area2"]
+        },
+        {
+            "code": 12,
+            "name": "Chemistry",
+            "degrees": ["Associate of Science: Chemistry", "Associate of Science: Chemistry Technician", "Certificate of Achievement: Chemistry", "Certificate of Achievement: Chemistry Technician"],
+            "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
+            "keywords": ["chemistry", "math", "biochemistry", "laboratory", "biophysics", "materials science", "organic chemistry"],
+            "filters": ["STEM"],
+            "aoi": ["area3", "area4"]
+        },
+        {
+            "code": 13,
+            "name": "Chicana and Chicano Studies",
+            "degrees": ["Associate of Arts: Chicana and Chicano Studies"],
+            "degree_types": ["Associate of Arts", "AA"],
+            "keywords": ["humanities", "chicano", "chicana", "chicanx", "social science", "social justics", "mexican", "latin", "latinx", "latino", "latina", "hispanic", "spanish"],
+            "filters": [""],
+            "aoi": ["area4", "area5"]
+        },
+        {
+            "code": 14,
+            "name": "Child Development",
+            "degrees": ["Associate of Science: Child Development", "Certificate of Achievement: Associate Teacher", "Certificate of Achievement: Master Teacher", "Certificate of Achievement: Teacher", "Certificate of Performance: Assistant Teacher", "Certificate of Performance: Home Day Care"],
+            "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate of Performance", "Certificate"],
+            "keywords": ["teacher", "child", "instruction", "childcare", "education", "development", "growth", "human", "health"],
+            "filters": [""],
+            "aoi": ["area2", "area3"]
+        }, 
+        {
+            "code": 15,
+            "name": "Communications Studies",
+            "degrees": ["Associate of Arts: Communication Studies", "Associate of Arts for Transfer: Communication Studies", "Certificate of Performance: Communication Studies"],
+            "degree_types": ["Associate of Arts", "AA", "Associate of Arts for Transfer", "ADT", "Certificate of Performance", "Certificate"],
+            "keywords": ["communication", "forensics", "public", "oral communication", "relations", "argumentation"],
+            "filters": [""],
+            "aoi": ["area3", "area5"]
+        },
+        {
+            "code": 16,
+            "name": "Computer Business Technology",
+            "degrees": ["Associate of Science: Administrative Assistant", "Certificate of Achievement: Business Information Worker I"],
+            "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
+            "keywords": ["computer", "technology", "microsoft", "clerk"],
+            "filters": [""],
+            "aoi": ["area1", "area3"]
+        },
+        {
+            "code": 17,
+            "name": "Computer and Information Sciences",
+            "degrees": ["Associate of Science: Computer and Information Sciences", "Certificate of Achievement: Computer and Information Sciences", "Certificate of Performance: Computer Programming"],
+            "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate of Performance", "Certificate"],
+            "keywords": ["computer", "programming", "code", "information", "systems", "hardware", "software", "java", "c++", "python", "accounting"],
+            "filters": ["STEM"],
+            "aoi": ["area2", "area5"]
+        },
+        {
+            "code": 18,
+            "name": "Culinary Arts/Culinary Management in Hospitality",
+            "degrees": ["Associate of Science: Culinary Arts/Culinary Management in Hospitality", "Certificate of Achievement: Culinary Arts/Culinary Management in Hospitality"],
+            "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
+            "keywords": ["hospitality", "food", "preparation", "catering", "pastry", "culinary", "cooking", "kitchen", "restaurant", "chef"],
+            "filters": [""],
+            "aoi": ["area1", "area2"]
+        },
+        {
+            "code": 19,
+            "name": "Dance",
+            "degrees": ["Associate of Arts: Dance", "Certificate of Achievement: Commercial Dance", "Certificate of Achievement: Choreography", "Certificate of Performance: Dance"],
+            "degree_types": ["Associate of Arts", "AA", "Certificate of Performance", "Certificate of Achievement", "Certificate"],
+            "keywords": ["dance", "jazz", "hip hop", "tap", "ballet", "ballroom", "modern", "latin", "contemporary"],
+            "filters": ["Art"],
+            "aoi": ["area2", "area4"]
+        },
+        {
+            "code": 20,
+            "name": "Dental Assisting",
+            "degrees": ["Associate of Science: Dental Assisting (RDA, CDA)", "Certificate of Achievement: Dental Assisting (RDA, CDA)"],
+            "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
+            "keywords": ["radiology", "health", "dental", "technician", "x-ray"],
+            "filters": [""],
+            "aoi": ["area3", "area5"]
+        },
+        {
+            "code": 21,
+            "name": "Dramatic Arts",
+            "degrees": ["Associate of Arts: Dramatic Arts", "Associate of Arts for Transfer: Theatre Arts"],
+            "degree_types": ["Associate of Arts", "AA", "Associate of Arts for Transfer", "ADT"],
+            "keywords": ["arts", "theatre", "theater", "drama", "acting", "performance", "production"],
+            "filters": ["Art"],
+            "aoi": ["area1", "area5"]
+        },
+        {
+            "code": 66,
+            "name": "Economics",
+            "degrees": ["Associate of Arts for Transfer: Economics"],
+            "degree_types": ["Associate of Arts for Transfer", "ADT"],
+            "keywords": ["microeconomics", "macroeconomics", "accounting", "math", "statistics"],
+            "filters": ["STEM"],
+            "aoi": ["area3", "area4"]
+        },
+        {
+            "code": 22,
+            "name": "Education",
+            "degrees": ["Associate of Arts: Elementary Teacher Education for Transfer"],
+            "degree_types": ["Associate of Arts", "AA"],
+            "keywords": ["teacher", "education", "elementary", "interdisciplinary"],
+            "filters": [""],
+            "aoi": ["area1", "area4"]
+        },
+        {
+            "code": 23,
+            "name": "Engineering",
+            "degrees": ["Associate of Science: Engineering", "Certificates of Achievement: Engineering"],
+            "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
+            "keywords": ["engineering", "chemistry", "math", "physics", "mechanical", "civil", "aerospace", "computer", "electrical", "bioengineering", "industrial"],
+            "filters": ["STEM"],
+            "aoi": ["area4", "area5"]
+        },
+        {
+            "code": 24,
+            "name": "English",
+            "degrees": ["Associate of Arts: English", "Associate of Arts for Transfer: English", "Certificate of Achievement: Creative Writing", "Certificate of Performance: Creative Writing"],
+            "degree_types": ["Associate of Arts", "AA", "Associate of Arts for Transfer", "ADT", "Certificate of Performance", "Certificate of Achievement", "Certificate"],
+            "keywords": ["literature", "poetry", "writing", "creative", "journalism", "law", "advertising", "business"],
+            "filters": [""],
+            "aoi": ["area2", "area5"]
+        },
+        {
+            "code": 64,
+            "name": "Entrepreneurship",
+            "degrees": ["Associate of Science: Small Business Management and Entrepreneurship", "Certificate of Achievement: Small Business Management and Entrepreneurship"],
+            "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
+            "keywords": ["business", "acounting", "management", "relations", "law", "marketing", "economics"],
+            "filters": [""],
+            "aoi": ["area4", "area5"]
+        },
+        {
+            "code": 25,
+            "name": "Excercise Science",
+            "degrees": ["Associate of Science: Kinesiology", "Associate of Arts for Transfer: Kinesiology", "Certificate of Achievement: Personal Trainer"],
+            "degree_types": ["Associate of Science", "AS", "Associate of Arts for Transfer", "ADT", "Certificate of Achievement", "Certificate"],
+            "keywords": ["gymnastics", "fitness", "soccer", "wellness", "badminton", "softball", "kinesiology", "excercise"],
+            "filters": [""],
+            "aoi": ["area1", "area2"]
+        },
+        {
+            "code": 26,
+            "name": "Fashion",
+            "degrees": ["Associate of Science: Fashion Design", "Associate of Science: Fashion Merchandising", "Associate of Science: Computer Fashion Technology - Design", "Associate of Science: Computer Fashion Technology - Marketing", "Certificate of Achievement: Fashion Design", "Certificate of Achievement: Fashion Merchandising", "Certificate of Achievement: Computer Fashional Technology - Design", "Certificate of Achievement: Computer Fashion Technology - Merchandising"],
+            "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
+            "keywords": ["fashion", "computer", "technology", "merchandising", "design", "clothing", "apparel", "buying", "textiles"],
+            "filters": ["Art"],
+            "aoi": ["area2", "area4"]
+        },
+        {
+            "code": 61,
+            "name": "Fermentation Management",
+            "degrees": ["Certificate of Achievement: Fermentation Managemenet"],
+            "degree_types": ["Certificate of Achievement", "Certificate"],
+            "keywords": ["beverage", "accounting", "hospitality", "fermentation", "brewing", "distilling", "beer", "wine", "spirits", "management"],
+            "filters": [""],
+            "aoi": ["area1", "area4"]
+        },
+        {
+            "code": 62,
+            "name": "French",
+            "degrees": ["Associate of Arts: French"],
+            "degree_types": ["Associate of Arts", "AA"],
+            "keywords": ["language", "french", "conversation", "interpretation", "linguistic", "translating"],
+            "filters": [""],
+            "aoi": ["area1", "area3"]
+        },
+        {
+            "code": 27,
+            "name": "Geographic Information Systems",
+            "degrees": ["Associate of Science: Geographic Information Systems", "Certificate of Performance: Geographic Information Systems Technician"],
+            "degree_types": ["Associate of Science", "AS", "Certificate of Performance", "Certificate"],
+            "keywords": ["gis", "technician", "geography", "computer", "cartography", "mapping", "programming", "image processing"],
+            "filters": ["STEM"],
+            "aoi": ["area2", "area5"]
+        },
+        {
+            "code": 28,
+            "name": "Geography",
+            "degrees": ["Associate of Arts: Geography", "Associate of Arts for Transfer: Geography"],
+            "degree_types": ["Associate of Arts", "AA", "Associate of Arts for Transfer", "ADT"],
+            "keywords": ["geography", "world", "natural", "environment", "climate", "global", "religion", "statistics", "economics"],
+            "filters": ["STEM"],
+            "aoi": ["area2", "area3"]
+        },
+        {
+            "code": 29,
+            "name": "Geology",
+            "degrees": ["Associate of Science for Transfer: Geology"],
+            "degree_types": ["Associate of Science for Transfer", "ADT"],
+            "keywords": ["science", "geology", "chemistry", "math", "earth"],
+            "filters": ["STEM"],
+            "aoi": ["area2", "area4"]
+        },
+        {
+            "code": 30,
+            "name": "Health Information Technology",
+            "degrees": ["Associate of Science: Health Information Technology", "Bachelor of Science: Health Information Technology", "Certificate of Achievement: Coding Specialist"],
+            "degree_types": ["Associate of Science", "AS", "Bachelor of Science", "BS", "Certificate of Achievement", "Certificate"],
+            "keywords": ["healthcare", "health", "coding", "management", "care", "specialist", "clinical", "medical", "systems"],
+            "filters": ["STEM"],
+            "aoi": ["area4", "area5"]
+        },
+        {
+            "code": 31,
+            "name": "History",
+            "degrees": ["Associate of Arts: History", "Associate of Arts for Transfer: History"],
+            "degree_types": ["Associate of Arts", "AA", "Associate of Arts for Transfer", "ADT"],
+            "keywords": ["history", "world", "asian", "western", "latin", "native", "politics"],
+            "filters": [""],
+            "aoi": ["area2", "area4"]
+        },
+        {
+            "code": 32,
+            "name": "Hospitality",
+            "degrees": ["Associate of Science: Event Management", "Associate of Science: Hotel Management", "Certificate of Achievement: Event Management", "Certificate of Achievement: Hotel Management"],
+            "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
+            "keywords": ["hospitality", "management", "catering", "accounting", "events", "marketing", "hotels"],
+            "filters": [""],
+            "aoi": ["area3", "area4"]
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+const PORT = 9000;
+
+const express = require("express");
+const app = express();
+
+const SEARCH_DATA = require("./search.json");
+
+app.get("/", (req, res) => {
+    req.sendStatus(200);
+})
+
+app.get("/search", (req, res) => {
+    res.status(200).send(SEARCH_DATA);
+})
+
+app.listen(PORT, () => console.log(`App running on port: ${PORT}.`));
