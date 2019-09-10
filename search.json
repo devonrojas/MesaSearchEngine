@@ -323,6 +323,267 @@
             "keywords": ["hospitality", "management", "catering", "accounting", "events", "marketing", "hotels"],
             "filters": [""],
             "aoi": ["area3", "area4"]
+        },
+        {
+            "code": 33,
+            "name": "Humanities",
+            "degrees": ["Associate of Arts: Humanities and Religious Studies"],
+            "degree_types": ["Associate of Arts", "AA"],
+            "keywords": ["humanities", "religious studies", "arts", "mythology", "philosophy"],
+            "filters": [""],
+            "aoi": ["area2", "area4"]
+        },
+        {
+            "code": 59,
+            "name": "Interior Design",
+            "degrees": ["Associate of Science: Interior Design", "Certificate of Achievement: Interior Design"],
+            "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
+            "keywords": ["interior", "design", "kitchen", "residential", "visual", "construction", "building"],
+            "filters": ["Art"],
+            "aoi": ["area4", "area5"]
+        },
+        {
+            "code": 34,
+            "name": "Japanese",
+            "degrees": ["Associate of Arts: Japanese"],
+            "degree_types": ["Associate of Arts", "AA"],
+            "keywords": ["japanese", "language", "linguistic", "asian", "translating"],
+            "filters": [""],
+            "aoi": ["area1", "area3"]
+        },
+        {
+            "code": 35,
+            "name": "Journalism",
+            "degrees": ["Associate of Arts: Journalism", "Associate of Arts for Transfer: Journalism", "Certificate of Achievement: Journalism"],
+            "degree_types": ["Associate of Arts", "AA"],
+            "keywords": ["journalism", "newspaper", "editing", "print", "news", "reporting", "specialist", "newspaper", "magazine", "publication", "communication"],
+            "filters": [""],
+            "aoi": ["area2", "area3"]
+        },
+        {
+            "code": 36,
+            "name": "Liberal Arts",
+            "degrees": ["Certificate of Achievement: Honors Global Competencies Certificate", "Certificate of Performance: Honors Global Competencies Certificate"],
+            "degree_types": ["Certificate of Achievement", "Certificate of Performance", "Certificate"],
+            "keywords": ["honors", "liberal", "arts", "humanities", "philosophy", "international studies", "intercultural studies", "language", "business", "law", "political science", "literature", "environmental studies", "history"],
+            "filters": [""],
+            "aoi": ["area2", "area5"]
+        },
+        {
+            "code": 60,
+            "name": "Liberal Arts and Sciences",
+            "degrees": ["Associate of Arts: Arts Studies - Art", "Associate of Arts: Arts Studies - Dance", "Associate of Arts: Arts Studies - Music", "Associate of Arts: Business Studies", "Associate of Arts: Language and Humanities Studies - Chinese", "Associate of Arts: Language and Humanities Studies - English", "Associate of Arts: Language and Humanities Studies - French", "Associate of Arts: Language and Humanities Studies - German", "Associate of Arts: Language and Humanities Studies - Italian", "Associate of Arts: Language and Humanities Studies - Japanese", "Associate of Arts: Language and Humanities Studies - Latin", "Associate of Arts: Language and Humanities Studies - Philosophy", "Associate of Arts: Language and Humanities Studies - Russian", "Associate of Arts: Language and Humanities Studies - Spanish", "Associate of Arts: Language and Humanities Studies - Tagalog", "Associate of Arts: Language and Humanities Studies - Vietnamese", "Associate of Arts: Mathematics and Pre-Engineering Studies - Mathematics", "Associate of Arts: Mathematics and Pre-Engineering Studies - Computer Science", "Associate of Arts: Mathematics and Pre-Engineering Studies - Engineering", "Associate of Arts: Science Studies - Biological Sciences", "Associate of Arts: Science Studies - Physical Sciences - Chemistry", "Associate of Arts: Science Studies - Physical Sciences - Physics", "Associate of Arts: Science Studies - Physical Sciences - Earth Sciences", "Associate of Arts: Science Studies - Physical Sciences - Pre-Nursing", "Associate of Arts: Science Studies - Physical Sciences - Kinesiology and Nutrition", "Associate of Arts: Science Studies - Physical Sciences - Psychology", "Associate of Arts: Social and Behavioral Sciences - Anthropology", "Associate of Arts: Social and Behavioral Sciences - Child Development", "Associate of Arts: Social and Behavioral Sciences - Economics", "Associate of Arts: Social and Behavioral Sciences - Human Development", "Associate of Arts: Social and Behavioral Sciences - History", "Associate of Arts: Social and Behavioral Sciences - Political Science", "Associate of Arts: Social and Behavioral Sciences - Psychology","Associate of Arts: Social and Behavioral Sciences - Social Sciences", "Associate of Arts: Social and Behavioral Sciences - Sociology", "Associate of Arts: Social and Behavioral Sciences - Women's Studies", "Certificate of Achievement: CSU General Education", "Certificate of Achievement: Intersegmental General Education Transfer Curriculum (IGETC)"],
+            "degree_types": ["Associate of Arts", "AA", "Certificate of Achievement", "Certificate"],
+            "keywords": ["humanities", "liberal", "arts", "sciences", "law", "business", "language", "philosophy", "intercultural studies", "international studies"],
+            "filters": [""],
+            "aoi": ["area1", "area2"]
+        },
+        {
+            "code": 37,
+            "name": "Liberal Studies",
+            "degrees": ["Associate of Arts: Elementary Education Preparation"],
+            "degree_types": ["Associate of Arts", "AA"],
+            "keywords": ["teaching", "thinking", "teachers", "learning", "awareness", "skills", "philosophy", "history", "science", "literature", "psychology", "teaching education"],
+            "filters": [""],
+            "aoi": ["area2", "area3"]
+        },
+        {
+            "code": 38, 
+            "name": "Marketing",
+            "degrees": ["Associate of Science: Marketing", "Certificate of Achievement: Marketing"],
+            "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
+            "keywords": ["marketing", "advertising", "sales", "analyst", "manager", "design", "communications", "business"],
+            "filters": [""],
+            "aoi": ["area4", "area5"]
+        },
+        {
+            "code": 39,
+            "name": "Mathematics",
+            "degrees": ["Associate of Arts: Mathematics", "Associate of Arts: Applied Mathematics", "Associate of Science for Transfer: Mathematics"],
+            "degree_types": ["Associate of Arts", "AS", "Associate of Science for Transfer", "ADT"],
+            "keywords": ["mathematics", "calculus", "geometry", "physics", "philosophy", "computer science"],
+            "filters": ["STEM"],
+            "aoi": ["area3", "area4"]
+        },
+        {
+            "code": 40,
+            "name": "Medical Assisting",
+            "degrees": ["Associate of Science: Medical Assisting", "Certificate of Achivement: Medical Assisting"],
+            "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
+            "keywords": ["health, physiology", "medicine", "surgery", "care", "medical", "hospital", "clinical", "phlebotomy"],
+            "filters": ["STEM"],
+            "aoi": ["area2", "area4"]
+        },
+        {
+            "code": 41,
+            "name": "Multimedia",
+            "degrees": ["Certificate of Achievement: 3D Modeling and Animation", "Certificate of Achievement: Video Game Design and Development", "Certificate of Achievement: Interactive Media Production", "Associate of Science: Visual Communication", "Associate of Science: Video Game Design and Development"],
+            "degree_types": ["Certificate of Achievement", "Certificate", "Associate of Science", "AS"],
+            "keywords": ["animator", "programmer", "gameplay", "modeling", "video", "artist", "art", "design", "cinema", "visual"],
+            "filters": ["Art"],
+            "aoi": ["area2", "area3"]
+        },
+        {
+            "code": 42,
+            "name": "Music",
+            "degrees": ["Associate of Arts: Music Studies", "Certificate of Performance: Music Composition", "Certificate of Performance: Music Technology", "Certificate of Performance: Music Theory"],
+            "degree_types": ["Associate of Arts", "AA", "Certificate of Performance", "Certificate"],
+            "keywords": ["ensemble", "piano", "jazz", "guitar", "instrument", "ear", "recital", "concert", "performance", "classical", "orchestra"],
+            "filters": ["Art"],
+            "aoi":["area1", "area4"]
+        },
+        {
+            "code": 43,
+            "name": "Nutrition",
+            "degrees": ["Associate of Science: Nutrition", "Associate of Science: Nutrition and Fitness", "Certificate of Achievement: Dietary Manager", "Certificate of Achievement: Nutrition", "Certificate of Achievement: Nutrition and Fitness"],
+            "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
+            "keywords": ["chemistry", "mathematics", "nutrition", "science", "laboratory", "dietetics", "clinical"],
+            "filters": ["STEM"],
+            "aoi": ["area3", "area5"]
+        },
+        {
+            "code": 44,
+            "name": "Philosophy",
+            "degrees": ["Associate of Arts: Philosophy", "Associate of Arts for Transfer: Philosophy"],
+            "degree_types": ["Associate of Arts", "AA", "Associate of Arts for Transfer", "ADT"],
+            "keywords": ["philosophy", "life", "human", "existence", "reason", "logic", "religion", "history", "literature"],
+            "filters": [""],
+            "aoi": ["area1", "area3"]
+        },
+        {
+            "code": 45,
+            "name": "Phlebotomy",
+            "degrees": ["Certificate of Performance: Phlebotomy Training"],
+            "degree_types": ["Certificate of Performance", "Certificate"],
+            "keywords": ["health", "training", "care", "examinations", "patient", "facilities", "phlebotomy", "clinical"],
+            "filters": [""],
+            "aoi": ["area2", "area4"]
+        },
+        {
+            "code": 46,
+            "name": "Physical Sciences",
+            "degrees": ["Associate of Science: Physical Sciences", "Certificate of Achievement: Physical Sciences"],
+            "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
+            "keywords": ["chemistry", "physics", "mathematics", "laboratory", "astronomy", "sciences", "earth"],
+            "filters": ["STEM"],
+            "aoi": ["area2", "area5"]
+        },
+        {
+            "code": 47,
+            "name": "Physical Therapist Assistant",
+            "degrees": ["Associate of Science: Physical Therapist Assistant"],
+            "degree_types": ["Associate of Science", "AS"],
+            "keywords": ["therapist", "assistant", "care", "physiology", "health", "therapy"],
+            "filters": ["STEM"],
+            "aoi": ["area1", "area4"]
+        },
+        {
+            "code": 48,
+            "name": "Physics",
+            "degrees": ["Associate of Science: Physics", "Associate of Science for Transfer: Physics", "Certificate of Achievement: Physics"],
+            "degree_types": ["Associate of Science", "AS", "Associate of Science for Transfer", "ADT", "Certificate of Achievement", "Certificate"],
+            "keywords": ["physics", "mathematics", "chemistry", "mechanics", "electricity", "optics", "laboratory", "magnetism"],
+            "filters": ["STEM"],
+            "aoi": ["area3", "area4"]
+        },
+        {
+            "code": 49,
+            "name": "Political Science",
+            "degrees": ["Associate of Arts: Political Science", "Associate of Arts for Transfer: Political Science"],
+            "degree_types": ["Associate of Arts", "AA", "Associate of Arts for Transfer", "ADT"],
+            "keywords": ["politics", "history", "statistics", "american", "world", "law", "economics", "geography", "cultural", "accounting"],
+            "filters": [""],
+            "aoi": ["area2", "area5"]
+        },
+        {
+            "code": 50,
+            "name": "Psychology",
+            "degrees": ["Associate of Arts: Psychology", "Associate of Arts for Transfer: Psychology"],
+            "degree_types": ["Associate of Arts", "AA", "Associate of Arts for Transfer", "ADT"],
+            "keywords": ["psychology", "behavior", "human", "relations", "learning", "development", "sexual", "statistics", "physiology"],
+            "filters": [""],
+            "aoi": ["area1", "area2"]
+        },
+        {
+            "code": 51,
+            "name": "Radiologic Technology",
+            "degrees": ["Associate of Science: Radiologic Technology", "Certificate of Achievement: Radiologic Technology"],
+            "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
+            "keywords": ["radiology", "imaging","laboratory", "tomography", "patient", "care", "forensic", "anatomy", "clincal"],
+            "filters": ["STEM"],
+            "aoi": ["area1", "area3"]
+        },
+        {
+            "code": 52,
+            "name": "Real Estate",
+            "degrees": ["Associate of Science: Real Estate"],
+            "degree_types": ["Associate of Science", "AS"],
+            "keywords": ["property", "sales", "economics", "finance", "communications", "accounting", "law", "management"],
+            "filters": [""],
+            "aoi": ["area2", "area3"]
+        },
+        {
+            "code": 63,
+            "name": "Retail Management",
+            "degrees": ["Certificate of Achievement: Retail Management"],
+            "degree_types": ["Certificate of Achievement", "Certificate"],
+            "keywords": ["management", "business administration", "sales", "accounting", "marketing", "organization", "relations", "communications"],
+            "filters": [""],
+            "aoi": ["area2", "area4"]
+        },
+        {
+            "code": 53,
+            "name": "Social Sciences",
+            "degrees": ["Associate of Arts: Social Sciences", "Certificate of Performance: Global Culture Studies"],
+            "degree_types": ["Associate of Arts", "AA", "Certificate of Performance", "Certificate"],
+            "keywords": ["social sciences", "humanities", "philosophy", "geography", "political science", "global", "anthropology", "history"],
+            "filters": [""],
+            "aoi": ["area4", "area5"]
+        },
+        {
+            "code": 54,
+            "name": "Sociology",
+            "degrees": ["Associate of Arts: Sociology", "Associate of Arts for Transfer: Sociology"],
+            "degree_types": ["Associate of Arts", "AA", "Associate of Arts for Transfer", "ADT"],
+            "keywords": ["sociology", "change", "anthropology", "culture", "psychology", "gender studies", "statistics"],
+            "filters": [""],
+            "aoi": ["area2", "area3"]
+        },
+        {
+            "code": 55,
+            "name": "Spanish",
+            "degrees": ["Associate of Arts: Spanish", "Associate of Arts for Transfer: Spanish"],
+            "degree_types": ["Associate of Arts", "AA", "Associate of Arts for Transfer", "ADT"],
+            "keywords": ["language", "linguistic", "translating", "communication", "interpretation"],
+            "filters": [""],
+            "aoi": ["area1", "area3"]
+        },
+        {
+            "code": 56,
+            "name": "Sustainability",
+            "degrees": ["Associate of Arts: Sustainability"],
+            "degree_types": ["Associate of Arts", "AA"],
+            "keywords": ["sustainability", "statistics", "science", "economics", "geography", "environment", "environmental studies"],
+            "filters": [""],
+            "aoi": ["area3", "area4"]
+        },
+        {
+            "code": 57,
+            "name": "Web Development",
+            "degrees": ["Associate of Science: Web Design", "Certificate of Achievement: Web Design"],
+            "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
+            "keywords": ["web", "html", "css", "javascript", "programming", "databases", "content", "editing", "php", "computer", "design"],
+            "filters": [""],
+            "aoi": ["area2", "area5"]
+        },
+        {
+            "code": 58,
+            "name": "Women's Studies",
+            "degrees": ["Certificate of Performance: Women's Studies"],
+            "degree_types": ["Certificate of Performance", "Certificate"],
+            "keywords": ["gender", "philosophy", "psychology", "women", "sexism", "racism", "literature"],
+            "filters": [""],
+            "aoi": ["area1", "area5"]
         }
     ]
 }
