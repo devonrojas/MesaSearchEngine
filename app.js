@@ -2,6 +2,9 @@ const PORT = process.env.PORT || 9000;
 
 const express = require("express");
 const app = express();
+const cors = require("cors");
+
+app.use(cors());
 
 const SEARCH_DATA = require("./search.json");
 
