@@ -6,7 +6,7 @@ const app = express();
 const SEARCH_DATA = require("./search.json");
 
 app.get("/", (req, res) => {
-    req.sendStatus(200);
+    res.sendStatus(200);
 })
 
 app.get("/search", (req, res) => {
