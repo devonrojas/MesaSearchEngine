@@ -3,6 +3,11 @@ const PORT = process.env.PORT || 9000;
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const http = require("http");
+
+setInterval(() => {
+    http.get("https://polar-wave-14549.herokuapp.com/");
+}, 30000);
 
 app.use(cors());
 
