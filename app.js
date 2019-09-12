@@ -7,7 +7,7 @@ const http = require("http");
 
 setInterval(() => {
     http.get("http://polar-wave-14549.herokuapp.com/");
-}, 30000);
+}, 300000);
 
 app.use(cors());
 
