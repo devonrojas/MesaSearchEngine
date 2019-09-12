@@ -6,7 +6,7 @@ const cors = require("cors");
 const http = require("http");
 
 setInterval(() => {
-    http.get("https://polar-wave-14549.herokuapp.com/");
+    http.get("http://polar-wave-14549.herokuapp.com/");
 }, 30000);
 
 app.use(cors());
