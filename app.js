@@ -9,6 +9,10 @@ const rp = require("request-promise");
 const fs = require("fs");
 
 const SearchEngine = require("./engine/SearchEngine.js");
+const Throttler = require("./engine/Throttler.js");
+
+const RATE_LIMIT = 1;
+const RATE_LIMIT_TIME = 15000;
 
 const WATSON_URL = "https://gateway.watsonplatform.net/natural-language-understanding/api/v1/analyze?version=2019-07-12";
 const WATSON_HEADERS = {
@@ -21,6 +25,8 @@ let WATSON_OPTIONS = {
     headers: WATSON_HEADERS,
     json: true
 }
+
+const CORTICAL_API = process.env.CORTICAL_API;
 
 setInterval(() => {
     http.get("http://polar-wave-14549.herokuapp.com/");
@@ -64,7 +70,7 @@ app.get("/programsearch", (req, res) => {
                 id: program["name"],
                 text: program_keywords(program)
             }
-        });
+        }).slice(0, 32);
         let engine = new SearchEngine(docs);
         let results = engine.search(...searchTerms.split(" "));
         results = results.sort((a, b) => {
@@ -161,6 +167,76 @@ app.get("/ibm", async(req, res) => {
         console.log(msg);
         fs.writeFile("courses.json", JSON.stringify(COURSE_DATA), (err) => {if(err) console.error(err.message)});
         console.log("File written.");
+    } catch(error) {
+        console.error(error);
+        res.status(500).send(error.message);
+    }
+})
+
+app.get("/cortical", async(req, res) => {
+    try {
+        res.status(200).send("Request received. Check logs for progress.");
+        let course_descriptions = COURSE_DATA.map(course => course["description"]);
+
+        const fn = async(cb, courses, index) => {
+            let options = {
+                uri: "http://api.cortical.io:80/rest/text/keywords",
+                method: "POST",
+                json: true,
+                headers: {
+                    "api-key": CORTICAL_API
+                },
+                qs: {
+                    retina_name: "en_associative",
+                },
+                body: courses
+            }
+
+            let keywords = await rp(options);
+            COURSE_DATA[index]["keywords"] = keywords;
+            cb();
+        }
+
+        let operations = await new Throttler(course_descriptions, RATE_LIMIT, RATE_LIMIT_TIME).execute(fn);
+
+        fs.writeFile("courses.json", JSON.stringify(COURSE_DATA), (err) => {if(err) console.error(err.message)});
+        console.log("File written.");       
+    } catch(error) {
+        console.error(error);
+        res.status(500).send(error.message);
+    }
+})
+
+app.get("/cortical/fingerprints", async(req, res) => {
+    try {
+        let payload = COURSE_DATA.map(course => {
+            return {
+                text: course["description"]
+            }
+        });
+
+        let options = {
+            uri: "http://api.cortical.io:80/rest/text/bulk",
+            method: "POST",
+            json: true,
+            headers: {
+                "api-key": CORTICAL_API
+            },
+            qs: {
+                retina_name: "en_associative",
+                sparsity: 1.0
+            },
+            body: payload
+        }
+
+        let fingerprints = await rp(options);
+        fingerprints.forEach((fingerprint, index) => {
+            COURSE_DATA[index]["fingerprint"] = fingerprint;
+        })
+
+        res.status(200).send("Fingerprints generated.");
+        fs.writeFile("courses.json", JSON.stringify(COURSE_DATA), (err) => {if(err) console.error(err.message)});
+        console.log("File written.");       
     } catch(error) {
         console.error(error);
         res.status(500).send(error.message);

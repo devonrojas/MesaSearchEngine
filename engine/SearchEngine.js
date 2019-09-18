@@ -28,7 +28,8 @@ class SearchEngine {
             doc["terms"] = doc["terms"].map(term => {
                 return {
                     word: term["word"],
-                    score: term["score"]
+                    score: term["score"],
+                    cosine: term["_wd"]
                 }
             });
         });
@@ -88,9 +89,10 @@ class Document {
 
     tf() {
         this.terms.forEach(term => {
-            term["_tf"] = this.doc.reduce((acc, doc) => {
-                if(doc.includes(term["word"])) {
+            term["_tf"] = this.doc.reduce((acc, item) => {
+                if(item === term["word"]) {
                     acc++;
+                    console.log("Exact match: " + item);
                 }
                 return acc;
             }, 0)
