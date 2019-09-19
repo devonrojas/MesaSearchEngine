@@ -33,6 +33,7 @@ Router.get("/programs", async (req, res) => {
     if(searchLimit) {
         results = results.slice(0, searchLimit);
     }
+    console.log(results);
     res.status(200).send(results);
 })
 

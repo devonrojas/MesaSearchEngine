@@ -17,7 +17,16 @@ class SearchEngine {
         this.length = docs.length;
     }
 
+    _reset() {
+        this.docs = this.docs.map(doc => {
+            doc["score"] = 0;
+            return doc;
+        })
+    }
+
     async search(...terms) {
+        this._reset();
+
         terms = terms
         .map(term => term.toLowerCase())
         .map(term => new Term(term))
