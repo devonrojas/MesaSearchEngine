@@ -5,15 +5,16 @@ const ProgramEngine =  new SearchEngine("Program");
 const CareerEngine =  new SearchEngine("Career");
 const CourseEngine =  new SearchEngine("Course");
 
-ProgramEngine._init()
-CareerEngine._init()
-CourseEngine._init()
+// CareerEngine._init()
+// CourseEngine._init()
 
 Router.get("/", (req, res) => {
     res.sendStatus(200);
 })
 
 Router.get("/programs", async (req, res) => {
+    ProgramEngine._init()
+
     let query = req.query;
     let searchTerms = query.q;
     let searchLimit = query.limit;

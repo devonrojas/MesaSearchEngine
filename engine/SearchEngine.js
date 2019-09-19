@@ -25,7 +25,7 @@ class SearchEngine {
     }
 
     async search(...terms) {
-        this._reset();
+        // this._reset();
 
         terms = terms
         .map(term => term.toLowerCase())
