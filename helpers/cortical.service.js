@@ -1,11 +1,28 @@
+/**
+ * @module service/cortical
+ * @author Devon Rojas
+ * 
+ * @requires {@link https://www.npmjs.com/package/request-promise| request-promise}
+ * @requires engine/throttler
+ */
+
+// Package imports
 require("dotenv").config();
 const rp = require("request-promise");
-const CORTICAL_URI = "http://api.cortical.io:80/rest/";
+
+// Module imports
 const Throttler = require("../engine/Throttler");
+
+const CORTICAL_URI = "http://api.cortical.io:80/rest/";
 const RATE_LIMIT = 1;
 const RATE_LIMIT_TIME = 15000;
 
 module.exports = {
+    /**
+     * Retrieves all terms associated with a given word or phrase.
+     * 
+     * @param {string} query 
+     */
     async cortical(query) {
         let options = {
             uri: CORTICAL_URI + "terms/similar_terms",

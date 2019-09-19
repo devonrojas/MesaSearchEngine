@@ -1,17 +1,47 @@
-const Router = require("express").Router();
+/**
+ * @module routes/search
+ * @author Devon Rojas
+ * 
+ * @requires {@link https://www.npmjs.com/package/express| express}
+ * @requires engine/search
+ */
+
+ // Package imports
+const express = require("express");
+
+// Module imports
 const SearchEngine = require("../engine/SearchEngine");
 
-const ProgramEngine =  new SearchEngine("Program");
-const CareerEngine =  new SearchEngine("Career");
-const CourseEngine =  new SearchEngine("Course");
+// Create preliminary Search Engine objects
+const ProgramEngine = new SearchEngine("Program");
+const CareerEngine = new SearchEngine("Career");
+const CourseEngine = new SearchEngine("Course");
 
+/**
+ * @type {object}
+ * @const
+ * @namespace searchRouter
+ */
+const Router = express.Router();
 
+/**
+ * @name GET/
+ * @function
+ * @memberof module:routes/search~searchRouter
+ */
 Router.get("/", (req, res) => {
     res.sendStatus(200);
 })
 
+/**
+ * Searches programs with query string.
+ * 
+ * @name GET/programs
+ * @function
+ * @memberof module:routes/search~searchRouter
+ */
 Router.get("/programs", async (req, res) => {
-    ProgramEngine._init()
+    await ProgramEngine._init()
 
     let query = req.query;
     let searchTerms = query.q;
@@ -35,8 +65,15 @@ Router.get("/programs", async (req, res) => {
     res.status(200).send(results);
 })
 
+/**
+ * Searches courses with query string.
+ * 
+ * @name GET/courses
+ * @function
+ * @memberof module:routes/search~searchRouter
+ */
 Router.get("/courses", async(req, res) => {
-    CourseEngine._init()
+    await CourseEngine._init()
 
     let query = req.query;
     let searchTerms = query.q;
@@ -53,15 +90,22 @@ Router.get("/courses", async(req, res) => {
         }
     }
 
-    let results = await Course.search(...terms)
+    let results = await CourseEngine.search(...terms)
     if(searchLimit) {
         results = results.slice(0, searchLimit);
     }
     res.status(200).send(results);
 })
 
+/**
+ * Searches careers with query string.
+ * 
+ * @name GET/careers
+ * @function
+ * @memberof module:routes/search~searchRouter
+ */
 Router.get("/careers", async(req, res) => {
-    CareerEngine._init()
+    await CareerEngine._init()
 
     let query = req.query;
     let searchTerms = query.q;
@@ -82,6 +126,7 @@ Router.get("/careers", async(req, res) => {
     if(searchLimit) {
         results = results.slice(0, searchLimit);
     }
-    res.status(200).send(results);})
+    res.status(200).send(results);
+})
 
 module.exports = Router;

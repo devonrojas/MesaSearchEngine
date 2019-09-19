@@ -1,3 +1,11 @@
+/**
+ * @module service/watson_nlp
+ * @author Devon Rojas
+ * 
+ * @requires {@link https://www.npmjs.com/package/request-promise| request-promise}
+ */
+
+// Package imports
 require("dotenv").config();
 const rp = require("request-promise");
 
@@ -14,6 +22,12 @@ let WATSON_OPTIONS = {
 }
 
 module.exports = {
+    /**
+     * Extracts keywords from text.
+     * 
+     * @param {String} text 
+     * @param {Number} threshold 
+     */
     async watson_nlp(text, threshold = 0.5) {
         WATSON_OPTIONS["body"] = {
             text: text,

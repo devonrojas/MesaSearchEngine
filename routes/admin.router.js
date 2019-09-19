@@ -1,22 +1,52 @@
+/**
+ * @module routes/admin
+ * @author Devon Rojas
+ * 
+ * @requires {@link https://www.npmjs.com/package/express| express}
+ * @requires {@link https://www.npmjs.com/package/request-promise| request-promise}
+ * 
+ * @requires db
+ * @requires engine/throttler
+ */
+
 require("dotenv").config();
-const Router = require("express").Router();
+// Package imports
+const express = require("express")
 const rp = require("request-promise");
 
-const { asyncForEach, wiki_query, watson_nlp, cortical } = require("../helpers");
-
+// Module imports
+const { wiki_query, watson_nlp, cortical } = require("../helpers");
 const DB = require("../db");
 const Throttler = require("../engine/Throttler.js");
-const SearchEngine = require("../engine/SearchEngine");
-
-const CORTICAL_URI = "http://api.cortical.io:80/rest/";
 const RATE_LIMIT = 1;
-const RATE_LIMIT_TIME = 1000;
+const RATE_LIMIT_TIME = 1000; // ms
 
+// Static data files
 const programs = require("../search.json")["programs"];
+const courses = require("../courses.json");
+
+/**
+ * @type {object}
+ * @const
+ * @namespace adminRouter
+ */
+const Router = express.Router();
 
 // Admin authentication
 // Router.use(AuthController);
 
+
+/*==============================================
+              GENERATOR ENDPOINTS
+ ==============================================*/
+
+/**
+ * Generates new career data from ONET database.
+ * 
+ * @name GET/generatecareers
+ * @function
+ * @memberof module:routes/admin~adminRouter
+ */
 Router.get("/generatecareers", async(req, res) => {
 
     let options = {
@@ -64,6 +94,13 @@ Router.get("/generatecareers", async(req, res) => {
     }
 })
 
+/**
+ * Generates new program data from static file.
+ * 
+ * @name GET/generateprograms
+ * @function
+ * @memberof module:routes/admin~adminRouter
+ */
 Router.get("/generateprograms", async(req, res) => {
     try {
         res.sendStatus(202);
@@ -84,7 +121,7 @@ Router.get("/generateprograms", async(req, res) => {
                     console.error(doc["title"] + " program already exists.");
                 } else {
                     await new Promise((resolve, reject) => setTimeout(() => resolve(), 3000));
-                    let query = [...new Set(program["name"].replace(/('s|-)/g,"").replace(/\s{2,}/g," ").replace("/", " ").split(" "))].join(" ");
+                    let query = [...new Set(program["name"].replace(/('s|-|,)/g,"").replace(/\s{2,}/g," ").replace("/", " ").split(" "))].join(" ");
                     let search = await wiki_query(query);
                     let keywords = await watson_nlp(search);
                     let terms = await cortical(query);
@@ -107,7 +144,60 @@ Router.get("/generateprograms", async(req, res) => {
     }
 })
 
-// PROGRAM ENDPOINTS
+/**
+ * Generates new course data from static file.
+ * @name GET/generatecourses
+ * @function
+ * @memberof module:routes/admin~adminRouter
+ */
+Router.get("/generatecourses", async(req, res) => {
+    try {
+        res.sendStatus(202);
+    
+        const fn = async(cb, course) => {
+            DB.Course.findOne({id: course["course_id"]}, async(err, doc) => {
+                if(err) {
+                    console.error(err);
+                }
+                if(doc) {
+                    console.error(doc["title"] + " program already exists.");
+                } else {
+                    await new Promise((resolve, reject) => setTimeout(() => resolve(), 3000));
+                    let query = [...new Set(course["title"].replace(/('s|-|,)/g,"").replace(/\s{2,}/g," ").replace("/", " ").split(" "))].join(" ");
+                    // let search = await wiki_query(query);
+                    let search = course["description"];
+                    let keywords = await watson_nlp(search);
+                    let terms = await cortical(query);
+            
+                    keywords = keywords.concat(terms);
+            
+                    await DB.Course.create({
+                        id: course["course_id"],
+                        title: course["title"],
+                        keywords: keywords
+                    })
+                    console.log(course["title"] + " course created.");
+                }
+                cb();
+            })
+        }
+        await new Throttler(courses, RATE_LIMIT, RATE_LIMIT_TIME).execute(fn)
+    } catch(error) {
+        console.error(error.message);
+    }
+})
+
+/*==============================================
+              PROGRAM ENDPOINTS
+ ==============================================*/
+ 
+ /**
+ * Retrieves all programs in database.
+ * 
+ * @name GET/programs
+ * @function
+ * @memberof module:routes/admin~adminRouter
+ */
 Router.get("/programs", (req, res) => {
     DB.Program.find({}, (err, docs) => {
         if(err) {
@@ -120,6 +210,13 @@ Router.get("/programs", (req, res) => {
     });
 })
 
+/**
+ * Retrieves a single program from the database.
+ * 
+ * @name GET/program/:code
+ * @function
+ * @memberof module:routes/admin~adminRouter
+ */
 Router.get("/program/:code", async(req, res) => {
     let code = req.params.code;
     try {
@@ -144,6 +241,13 @@ Router.get("/program/:code", async(req, res) => {
     }
 })
 
+/**
+ * Creates a program in the database.
+ * 
+ * @name POST/program/:code
+ * @function
+ * @memberof module:routes/admin~adminRouter
+ */
 Router.post("/program/:code", async(req, res) => {
     let code = req.params.code;
     let program = req.body;
@@ -162,7 +266,7 @@ Router.post("/program/:code", async(req, res) => {
                 })
             } else {
                 await new Promise((resolve, reject) => setTimeout(() => resolve(), 3000));
-                let query = [...new Set(program["name"].replace(/('s|-)/g,"").replace(/\s{2,}/g," ").replace("/", " ").split(" "))].join(" ");
+                let query = [...new Set(program["name"].replace(/('s|-|,)/g,"").replace(/\s{2,}/g," ").replace("/", " ").split(" "))].join(" ");
                 let search = await wiki_query(query);
                 let keywords = await watson_nlp(search);
                 let terms = await cortical(query);
@@ -184,6 +288,13 @@ Router.post("/program/:code", async(req, res) => {
     }
 })
 
+/**
+ * Updates a program in the database.
+ * 
+ * @name PUT/program/:code
+ * @function
+ * @memberof module:routes/admin~adminRouter
+ */
 Router.put("/program/:code", async(req, res) => {
     let code = req.params.code;
     let program = req.body;
@@ -217,6 +328,13 @@ Router.put("/program/:code", async(req, res) => {
     }
 })
 
+/**
+ * Deletes a program from the database.
+ * 
+ * @name DELETE/program/:code
+ * @function
+ * @memberof module:routes/admin~adminRouter
+ */
 Router.delete("/program/:code", async(req, res) => {
     let code = req.params.code;
     try {
@@ -235,7 +353,17 @@ Router.delete("/program/:code", async(req, res) => {
     }
 })
 
-// CAREER ENDPOINTS
+/*==============================================
+               CAREER ENDPOINTS
+ ==============================================*/
+
+/**
+ * Retrieves all careers in database.
+ * 
+ * @name GET/careers
+ * @function
+ * @memberof module:routes/admin~adminRouter
+ */
 Router.get("/careers", (req, res) => {
     DB.Career.find({}, (err, docs) => {
         if(err) {
@@ -248,6 +376,13 @@ Router.get("/careers", (req, res) => {
     })
 })
 
+/**
+ * Retrieves a single career from the database.
+ * 
+ * @name GET/career/:code
+ * @function
+ * @memberof module:routes/admin~adminRouter
+ */
 Router.get("/career/:code", async(req, res) => {
     let code = req.params.code;
     try {
@@ -272,6 +407,13 @@ Router.get("/career/:code", async(req, res) => {
     }
 })
 
+/**
+ * Creates a career in the database.
+ * 
+ * @name POST/career/:code
+ * @function
+ * @memberof module:routes/admin~adminRouter
+ */
 Router.post("/career/:code", async(req, res) => {
     let code = req.params.code;
     let career = req.body;
@@ -312,12 +454,18 @@ Router.post("/career/:code", async(req, res) => {
     }
 })
 
+/**
+ * Updates a career in the database.
+ * 
+ * @name PUT/career/:code
+ * @function
+ * @memberof module:routes/admin~adminRouter
+ */
 Router.put("/career/:code", async(req, res) => {
     let code = req.params.code;
     let career = req.body;
     try {
-        await new Promise((resolve, reject) => setTimeout(() => resolve(), 3000));
-        // let query = [...new Set(career["_title"].replace(/('s|-)/g,"").replace(/\s{2,}/g," ").replace("/", " ").split(" "))].join(" ");
+        // let query = [...new Set(career["_title"].replace(/('s|-|,)/g,"").replace(/\s{2,}/g," ").replace("/", " ").split(" "))].join(" ");
         // let search = await wiki_query(query);
         let query = career["_title"] + " " + career["_description"][0].toLowerCase() + career["_description"].slice(1) + " " + career["_tasks"].join(" ") + " " + career["_technical_skills"].join(" ");
         let keywords = await watson_nlp(query);
@@ -350,6 +498,13 @@ Router.put("/career/:code", async(req, res) => {
     }
 })
 
+/**
+ * Deletes a career from the database.
+ * 
+ * @name DELETE/career/:code
+ * @function
+ * @memberof module:routes/admin~adminRouter
+ */
 Router.delete("/career/:code", async(req, res) => {
     let code = req.params.code;
     try {
@@ -368,7 +523,17 @@ Router.delete("/career/:code", async(req, res) => {
     }  
 })
 
-// COURSE ENDPOINTS
+/*==============================================
+               COURSE ENDPOINTS
+ ==============================================*/
+
+/**
+ * Retrieves all courses in database.
+ * 
+ * @name GET/courses
+ * @function
+ * @memberof module:routes/admin~adminRouter
+ */
 Router.get("/courses", (req, res) => {
     DB.Course.find({}, (err, docs) => {
         if(err) {
@@ -381,6 +546,13 @@ Router.get("/courses", (req, res) => {
     })
 })
 
+/**
+ * Retrieves a single course from the database.
+ * 
+ * @name GET/course/:code
+ * @function
+ * @memberof module:routes/admin~adminRouter
+ */
 Router.get("/course/:code", async(req, res) => {
     let code = req.params.code;
     try {
@@ -405,74 +577,40 @@ Router.get("/course/:code", async(req, res) => {
     }
 })
 
+/**
+ * Creates a course in the database.
+ * 
+ * @name POST/course/:code
+ * @function
+ * @memberof module:routes/admin~adminRouter
+ */
 Router.post("/course/:code", async(req, res) => {
     let code = req.params.code;
     let course = req.body;
     try {
-        DB.Course.findOne({id: code}, (err, doc) => {
+        DB.Course.findOne({id: code}, async(err, doc) => {
             if(err) {
-                res.status(404).json({
-                    success: false,
-                    err: err
-                })
+                console.error(err);
             }
             if(doc) {
-                res.status(400).json({
-                    success: false,
-                    err: "Course already exists in database. If you wish to update this course, use PUT method."
-                })
-            }
-        });
-
-        let payload = course["description"];
+                console.error(doc["title"] + " program already exists.");
+            } else {
+                let query = [...new Set(course["title"].replace(/('s|-|,)/g,"").replace(/\s{2,}/g," ").replace("/", " ").split(" "))].join(" ");
+                // let search = await wiki_query(query);
+                let search = course["description"];
+                let keywords = await watson_nlp(search);
+                let terms = await cortical(query);
         
-        // Fetch keywords for career
-        let options = {
-            uri: CORTICAL_URI + "text/keywords",
-            method: "POST",
-            json: true,
-            headers: {
-                "api-key": process.env.CORTICAL_API
-            },
-            qs: {
-                retina_name: "en_associative",
-            },
-            body: payload
-        }
-
-        let keywords = await rp(options);
-
-        const fn = async(cb, keyword) => {
-            let termOptions = options;
+                keywords = keywords.concat(terms);
         
-            termOptions["uri"] = CORTICAL_URI + "terms";
-            termOptions["qs"]["get_fingerprint"] = true;
-            termOptions["qs"]["term"] = keyword;
-
-            delete termOptions["method"];
-            delete termOptions["body"];
-
-            let term = await rp(termOptions);
-            let t = {
-                text: keyword,
-                fingerprint: term[0]["fingerprint"]
-            }
-            cb(t);
-        }
-        let terms = await new Throttler(keywords, RATE_LIMIT, RATE_LIMIT_TIME).execute(fn);
-
-        DB.Course.create({
-            id: code,
-            title: course["title"],
-            keywords: terms
-        }, (err, course) => {
-            if(err) {
-                return res.status(400).json({
-                    success: false,
-                    err: err
+                await DB.Course.create({
+                    id: code,
+                    title: course["title"],
+                    keywords: keywords
                 })
+                console.log(course["title"] + " course created.");
+                res.status(201).send(course);
             }
-            res.status(201).send(course);
         })
     } catch(error) {
         console.error(error);
@@ -480,46 +618,24 @@ Router.post("/course/:code", async(req, res) => {
     }
 })
 
+/**
+ * Updates a course in the database.
+ * 
+ * @name PUT/course/:code
+ * @function
+ * @memberof module:routes/admin~adminRouter
+ */
 Router.put("/course/:code", async(req, res) => {
     let code = req.params.code;
     let course = req.body;
     try {
-        let payload = course["description"];
+        let query = [...new Set(course["title"].replace(/('s|-|,)/g,"").replace(/\s{2,}/g," ").replace("/", " ").split(" "))].join(" ");
+        // let search = await wiki_query(query);
+        let search = course["description"];
+        let keywords = await watson_nlp(search);
+        let terms = await cortical(query);
 
-        // Fetch keywords for career
-        let options = {
-            uri: CORTICAL_URI + "text/keywords",
-            method: "POST",
-            json: true,
-            headers: {
-                "api-key": process.env.CORTICAL_API
-            },
-            qs: {
-                retina_name: "en_associative",
-            },
-            body: payload
-        }
-
-        let keywords = await rp(options);
-
-        const fn = async(cb, keyword) => {
-            let termOptions = options;
-        
-            termOptions["uri"] = CORTICAL_URI + "terms";
-            termOptions["qs"]["get_fingerprint"] = true;
-            termOptions["qs"]["term"] = keyword;
-
-            delete termOptions["method"];
-            delete termOptions["body"];
-
-            let term = await rp(termOptions);
-            let t = {
-                text: keyword,
-                fingerprint: term[0]["fingerprint"]
-            }
-            cb(t);
-        }
-        let terms = await new Throttler(keywords, RATE_LIMIT, RATE_LIMIT_TIME).execute(fn);
+        keywords = keywords.concat(terms);
 
         let update = {
             title: course["title"],
@@ -546,6 +662,13 @@ Router.put("/course/:code", async(req, res) => {
     }
 })
 
+/**
+ * Deletes a course from the database.
+ * 
+ * @name DELETE/course/:code
+ * @function
+ * @memberof module:routes/admin~adminRouter
+ */
 Router.delete("/course/:code", async(req, res) => {
     let code = req.params.code;
     try {

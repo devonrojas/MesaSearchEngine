@@ -1,3 +1,11 @@
+/**
+ * @module service/wikipedia
+ * @author Devon Rojas
+ * 
+ * @requires {@link https://www.npmjs.com/package/request-promise| request-promise}
+ */
+
+// Package imports
 require("dotenv").config();
 const rp = require("request-promise");
 
@@ -27,6 +35,11 @@ let SEARCH_OPTIONS = {
 }
 
 module.exports = {
+    /**
+     * Searches Wikipedia for relevant pages and returns page text.
+     * 
+     * @param {String} str 
+     */
     async wiki_query(str) {
         SEARCH_OPTIONS["qs"]["srsearch"] = str;
         let results = await rp(SEARCH_OPTIONS);

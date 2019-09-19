@@ -1,24 +1,29 @@
+/**
+ * @module MesaSearchEngine
+ * @author Devon Rojas
+ * 
+ * @requires {@link https://www.npmjs.com/package/express| express}
+ * @requires {@link https://www.npmjs.com/package/cors| cors}
+ * @requires {@link https://www.npmjs.com/package/body-parser| body-parser}
+ * @requires {@link https://nodejs.org/api/http.html| http}
+ * @requires {@link https://mongoosejs.com/docs/guide.html| mongoose}
+ * 
+ * @requires routes
+ */
 require("dotenv").config();
 const PORT = process.env.PORT || 9000;
 
+// Package imports
 const express = require("express");
-const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const http = require("http");
-const rp = require("request-promise");
-const fs = require("fs");
 const mongoose = require("mongoose");
 
+// Express routers
 const { AdminRouter, SearchRouter } = require("./routes");
 
-const Throttler = require("./engine/Throttler.js");
-
-const RATE_LIMIT = 1;
-const RATE_LIMIT_TIME = 15000;
-
-const CORTICAL_API = process.env.CORTICAL_API;
-
+// Keep server alive
 setInterval(() => {
     http.get("http://polar-wave-14549.herokuapp.com/");
 }, 300000);
@@ -28,87 +33,42 @@ mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopo
 .then(() => console.log("Connected to database..."))
 .catch(err => console.error("Could not connect to database..."));
 
+/**
+ * express module
+ * @type {object}
+ * @const
+ * @namespace app
+ */
+const app = express();
+
+// Request middleware
 app.use(cors({
     allowedHeaders: ["Content-Type"],
     methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
     origin: "*"
 }));
 app.use(bodyParser.json());
+
+// Routing middleware
+/**
+ * Defines available /admin routes
+ * @memberof module:MesaSearchEngine~app
+ */
 app.use("/admin", AdminRouter);
+/**
+ * Defines available /search routes
+ * @memberof module:MesaSearchEngine~app
+ */
 app.use("/search", SearchRouter);
 
+/**
+ * @name GET/
+ * @function
+ * @memberof module:MesaSearchEngine~app
+ */
 app.get("/", (req, res) => {
     res.sendStatus(200);
 })
 
-app.get("/cortical", async(req, res) => {
-    try {
-        res.status(200).send("Request received. Check logs for progress.");
-        let course_descriptions = COURSE_DATA.map(course => course["description"]);
-
-        const fn = async(cb, courses, index) => {
-            let options = {
-                uri: "http://api.cortical.io:80/rest/text/keywords",
-                method: "POST",
-                json: true,
-                headers: {
-                    "api-key": CORTICAL_API
-                },
-                qs: {
-                    retina_name: "en_associative",
-                },
-                body: courses
-            }
-
-            let keywords = await rp(options);
-            COURSE_DATA[index]["keywords"] = keywords;
-            cb();
-        }
-
-        let operations = await new Throttler(course_descriptions, RATE_LIMIT, RATE_LIMIT_TIME).execute(fn);
-
-        fs.writeFile("courses.json", JSON.stringify(COURSE_DATA), (err) => {if(err) console.error(err.message)});
-        console.log("File written.");
-    } catch(error) {
-        console.error(error);
-        res.status(500).send(error.message);
-    }
-})
-
-app.get("/cortical/fingerprints", async(req, res) => {
-    try {
-        let payload = COURSE_DATA.map(course => {
-            return {
-                text: course["description"]
-            }
-        });
-
-        let options = {
-            uri: "http://api.cortical.io:80/rest/text/bulk",
-            method: "POST",
-            json: true,
-            headers: {
-                "api-key": CORTICAL_API
-            },
-            qs: {
-                retina_name: "en_associative",
-                sparsity: 1.0
-            },
-            body: payload
-        }
-
-        let fingerprints = await rp(options);
-        fingerprints.forEach((fingerprint, index) => {
-            COURSE_DATA[index]["fingerprint"] = fingerprint;
-        })
-
-        res.status(200).send("Fingerprints generated.");
-        fs.writeFile("courses.json", JSON.stringify(COURSE_DATA), (err) => {if(err) console.error(err.message)});
-        console.log("File written.");       
-    } catch(error) {
-        console.error(error);
-        res.status(500).send(error.message);
-    }
-})
-
+// Instantiates Express application on specified PORT
 app.listen(PORT, () => console.log(`App running on port: ${PORT}.`));

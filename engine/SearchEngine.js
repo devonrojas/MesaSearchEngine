@@ -1,32 +1,48 @@
-require("dotenv").config();
-const DB = require("../db");
-// const rp = require("request-promise");
+/**
+ * @module engine/search
+ * @author Devon Rojas
+ * 
+ * @requires db
+ * @requires helpers
+ */
 
+// Package imports
+require("dotenv").config();
+
+// Module imports
+const DB = require("../db");
 const { asyncForEach } = require("../helpers");
 
+/**
+ * Handles the search for a particular search category
+ */
 class SearchEngine {
+    /**
+     * Creates an empty SearchEngine object.
+     * 
+     * @param {String} type Either 'Program', 'Course', or 'Career'
+     */
     constructor(type) {
         this._type = type;
         this.docs;
         this.length;
     }
 
+    /**
+     * Loads search engine with all documents of type passed in to constructor
+     */
     async _init() {
         let docs = await DB[this._type].find({});
         this.docs = docs.map(doc => new Document(doc["title"], doc["keywords"]));
         this.length = docs.length;
     }
 
-    _reset() {
-        this.docs = this.docs.map(doc => {
-            doc["score"] = 0;
-            return doc;
-        })
-    }
-
+    /**
+     * Searches documents against term(s) passed in to function and returns relevant matches.
+     * 
+     * @param  {...String} terms
+     */
     async search(...terms) {
-        // this._reset();
-
         terms = terms
         .map(term => term.toLowerCase())
         .map(term => new Term(term))
@@ -37,7 +53,6 @@ class SearchEngine {
                     df++;
                 }
             })
-            // console.log("Doc freq: " + df);
             term["_idf"] = this._idf(df);
             return term;
         })
@@ -71,6 +86,7 @@ class SearchEngine {
                 query: doc["query"]
             }
         })
+        .filter(doc => doc["score"] > 0)
         .sort((a, b) => {
             let scoreA = a["score"];
             let scoreB = b["score"]
@@ -134,7 +150,6 @@ class Document {
         }, 0)
         this.query.forEach(term => {
             term["_wd"] = term["_tf"] === 0 || termSum === 0 ? 0 : term["_tf"] / Math.sqrt(termSum);
-            // console.log(term["word"] + " idf: " + term["_idf"] + " tf: " + term["_tf"] + " wd: " + term["_wd"] + " wf: " + term["_wf"], termSum);
         })
     }
 
@@ -151,7 +166,6 @@ class Document {
 
     wf() {
         this.query.forEach(term => {
-            // console.log(this.id + " | " + term["word"] + " idf: " + term["_idf"] + " tf: " + term["_tf"] + " = " + (term["_idf"] * term["_tf"]));
             term["_wf"] = term["_tf"] * term["_tf"];
         })
     }
