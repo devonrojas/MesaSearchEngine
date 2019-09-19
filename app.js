@@ -17,18 +17,6 @@ const Throttler = require("./engine/Throttler.js");
 const RATE_LIMIT = 1;
 const RATE_LIMIT_TIME = 15000;
 
-// const WATSON_URL = "https://gateway.watsonplatform.net/natural-language-understanding/api/v1/analyze?version=2019-07-12";
-// const WATSON_HEADERS = {
-//     Authorization: 'Basic ' + Buffer.from(process.env.WATSON_API_KEY).toString('base64'),
-//     "Content-Type": "application/json"
-// }
-// let WATSON_OPTIONS = {
-//     uri: WATSON_URL,
-//     method: 'POST',
-//     headers: WATSON_HEADERS,
-//     json: true
-// }
-
 const CORTICAL_API = process.env.CORTICAL_API;
 
 setInterval(() => {

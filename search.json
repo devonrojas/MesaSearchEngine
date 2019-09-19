@@ -236,7 +236,7 @@
         },
         {
             "code": 25,
-            "name": "Excercise Science",
+            "name": "Exercise Science",
             "degrees": ["Associate of Science: Kinesiology", "Associate of Arts for Transfer: Kinesiology", "Certificate of Achievement: Personal Trainer"],
             "degree_types": ["Associate of Science", "AS", "Associate of Arts for Transfer", "ADT", "Certificate of Achievement", "Certificate"],
             "keywords": ["gymnastics", "fitness", "soccer", "wellness", "badminton", "softball", "kinesiology", "excercise"],

@@ -2,18 +2,74 @@ require("dotenv").config();
 const Router = require("express").Router();
 const rp = require("request-promise");
 
+const { asyncForEach, wiki_query, watson_nlp, cortical } = require("../helpers");
+
 const DB = require("../db");
 const Throttler = require("../engine/Throttler.js");
+const SearchEngine = require("../engine/SearchEngine");
 
 const CORTICAL_URI = "http://api.cortical.io:80/rest/";
 const RATE_LIMIT = 1;
-const RATE_LIMIT_TIME = 15000;
+const RATE_LIMIT_TIME = 1000;
+
+const programs = require("../search.json")["programs"];
 
 // Admin authentication
 // Router.use(AuthController);
 
-Router.get("/", (req, res) => {
-    res.sendStatus(200);
+Router.get("/", async(req, res) => {
+    let q = req.query.q;
+    let terms = q.split(" ");
+    if(terms.length > 1) {
+        terms.push(q);
+    }
+    let engine = await new SearchEngine("Program");
+    await engine._init()
+    let results = await engine.search(...terms)
+    res.status(200).send(results);
+})
+
+Router.get("/generate", async(req, res) => {
+    try {
+        res.sendStatus(202);
+
+        let p = programs.map(program => {
+            return {
+                name: program["name"],
+                code: program["code"]
+            }
+        });
+    
+        const fn = async(cb, program) => {
+                DB.Program.findOne({id: program["code"]}, async(err, doc) => {
+                    if(err) {
+                        console.error(err);
+                    }
+                    if(doc) {
+                        console.error(doc["title"] + " program already exists.");
+                    } else {
+                        await new Promise((resolve, reject) => setTimeout(() => resolve(), 3000));
+                        let query = [...new Set(program["name"].replace(/('s|-)/g,"").replace(/\s{2,}/g," ").replace("/", " ").split(" "))].join(" ");
+                        let search = await wiki_query(query);
+                        let keywords = await watson_nlp(search);
+                        let terms = await cortical(query);
+                
+                        keywords = keywords.concat(terms);
+                
+                        await DB.Program.create({
+                            id: program["code"],
+                            title: program["name"],
+                            keywords: keywords
+                        })
+                        console.log(program["name"] + " program created.");
+                    }
+                    cb();
+                })
+        }
+        await new Throttler(p, RATE_LIMIT, RATE_LIMIT_TIME).execute(fn)
+    } catch(error) {
+        console.error(error.message);
+    }
 })
 
 // PROGRAM ENDPOINTS
@@ -71,28 +127,10 @@ Router.post("/program/:code", async(req, res) => {
                 })
             }
         });
-        
-        // Fetch keywords for program
-        let options = {
-            uri: CORTICAL_URI + "terms/similar_terms",
-            json: true,
-            headers: {
-                "api-key": process.env.CORTICAL_API
-            },
-            qs: {
-                retina_name: "en_associative",
-                term: program["title"],
-                get_fingerprint: true
-            }
-        }
 
-        let terms = await rp(options);
-        terms = terms.map(term => {
-            return {
-                text: term["term"],
-                fingerprint: term["fingerprint"]
-            }
-        })
+        // Fetch keywords for program
+        let query = [...new Set(program["title"].replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s{2,}/g," ").split(" "))].join(" ");
+        let terms = await cortical(query);
 
         DB.Program.create({
             id: code,
@@ -118,26 +156,8 @@ Router.put("/program/:code", async(req, res) => {
     let program = req.body;
     try {
         // Fetch keywords for program
-        let options = {
-            uri: CORTICAL_URI + "terms/similar_terms",
-            json: true,
-            headers: {
-                "api-key": process.env.CORTICAL_API
-            },
-            qs: {
-                retina_name: "en_associative",
-                term: program["title"],
-                get_fingerprint: true
-            }
-        }
-
-        let terms = await rp(options);
-        terms = terms.map(term => {
-            return {
-                text: term["term"],
-                fingerprint: term["fingerprint"]
-            }
-        })
+        let query = [...new Set(program["title"].replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s{2,}/g," ").split(" "))].join(" ");
+        let terms = await cortical(query);
 
         let update = {
             title: program["title"],
