@@ -23,9 +23,14 @@ module.exports = {
             query = query.split(" ");
             if(query.length > 1) {
                 const fn = async(cb, term) => {
-                    options["qs"]["term"] = term;
-                    let kwrds = await rp(options);
-                    cb(kwrds);
+                    try {
+                        options["qs"]["term"] = term;
+                        let kwrds = await rp(options);
+                        cb(kwrds);
+                    } catch(error) {
+                        console.error(error.message);
+                        cb();
+                    }
                 }
 
                 await new Promise((resolve, reject) => setTimeout(() => resolve(), 5000))
@@ -38,7 +43,7 @@ module.exports = {
         } catch(error) {
             console.error(error.message);
         } finally {
-            terms = terms.map(term => term["term"]);
+            terms = terms.filter(term => term).map(term => term["term"]);
             return terms;
         }
     }

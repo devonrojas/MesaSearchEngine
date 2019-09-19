@@ -17,19 +17,54 @@ const programs = require("../search.json")["programs"];
 // Admin authentication
 // Router.use(AuthController);
 
-Router.get("/", async(req, res) => {
-    let q = req.query.q;
-    let terms = q.split(" ");
-    if(terms.length > 1) {
-        terms.push(q);
+Router.get("/generatecareers", async(req, res) => {
+
+    let options = {
+        uri: "https://infinite-spire-51367.herokuapp.com/career",
+        method: "GET",
+        json: true
     }
-    let engine = await new SearchEngine("Program");
-    await engine._init()
-    let results = await engine.search(...terms)
-    res.status(200).send(results);
+    let careers = (await rp(options))["careers"];
+    
+    try {
+        res.sendStatus(202);
+
+        const fn = async(cb, career) => {
+            DB.Career.findOne({id: career["code"]}, async(err, doc) => {
+                if(err) {
+                    console.error(err);
+                }
+                if(doc) {
+                    console.error(doc["title"] + " program already exists.");
+                } else {
+                    options["uri"] = "https://infinite-spire-51367.herokuapp.com/career/" + career["code"] + "/US/25";
+                    career = await rp(options);
+                    await new Promise((resolve, reject) => setTimeout(() => resolve(), 3000));
+
+                    let query = career["_title"] + " " + career["_description"][0].toLowerCase() + career["_description"].slice(1) + " " + career["_tasks"].join(" ") + " " + career["_technical_skills"].join(" ");
+                    let keywords = await watson_nlp(query);
+                    let terms = await cortical(career["_title"]);
+            
+                    keywords = keywords.concat(terms);
+            
+                    await DB.Career.create({
+                        id: career["_code"],
+                        title: career["_title"],
+                        keywords: keywords
+                    })
+                    console.log(career["_title"] + " career created.");
+                }
+                cb();
+            });
+        }
+
+        await new Throttler(careers, RATE_LIMIT, RATE_LIMIT_TIME).execute(fn);
+    } catch(error) {
+        console.error(error);
+    }
 })
 
-Router.get("/generate", async(req, res) => {
+Router.get("/generateprograms", async(req, res) => {
     try {
         res.sendStatus(202);
 
@@ -41,30 +76,30 @@ Router.get("/generate", async(req, res) => {
         });
     
         const fn = async(cb, program) => {
-                DB.Program.findOne({id: program["code"]}, async(err, doc) => {
-                    if(err) {
-                        console.error(err);
-                    }
-                    if(doc) {
-                        console.error(doc["title"] + " program already exists.");
-                    } else {
-                        await new Promise((resolve, reject) => setTimeout(() => resolve(), 3000));
-                        let query = [...new Set(program["name"].replace(/('s|-)/g,"").replace(/\s{2,}/g," ").replace("/", " ").split(" "))].join(" ");
-                        let search = await wiki_query(query);
-                        let keywords = await watson_nlp(search);
-                        let terms = await cortical(query);
-                
-                        keywords = keywords.concat(terms);
-                
-                        await DB.Program.create({
-                            id: program["code"],
-                            title: program["name"],
-                            keywords: keywords
-                        })
-                        console.log(program["name"] + " program created.");
-                    }
-                    cb();
-                })
+            DB.Program.findOne({id: program["code"]}, async(err, doc) => {
+                if(err) {
+                    console.error(err);
+                }
+                if(doc) {
+                    console.error(doc["title"] + " program already exists.");
+                } else {
+                    await new Promise((resolve, reject) => setTimeout(() => resolve(), 3000));
+                    let query = [...new Set(program["name"].replace(/('s|-)/g,"").replace(/\s{2,}/g," ").replace("/", " ").split(" "))].join(" ");
+                    let search = await wiki_query(query);
+                    let keywords = await watson_nlp(search);
+                    let terms = await cortical(query);
+            
+                    keywords = keywords.concat(terms);
+            
+                    await DB.Program.create({
+                        id: program["code"],
+                        title: program["name"],
+                        keywords: keywords
+                    })
+                    console.log(program["name"] + " program created.");
+                }
+                cb();
+            })
         }
         await new Throttler(p, RATE_LIMIT, RATE_LIMIT_TIME).execute(fn)
     } catch(error) {
@@ -113,7 +148,7 @@ Router.post("/program/:code", async(req, res) => {
     let code = req.params.code;
     let program = req.body;
     try {
-        DB.Program.findOne({id: code}, (err, doc) => {
+        DB.Program.findOne({id: code}, async(err, doc) => {
             if(err) {
                 return res.status(404).json({
                     success: false,
@@ -125,26 +160,24 @@ Router.post("/program/:code", async(req, res) => {
                     success: false,
                     err: "Program already exists in database. If you wish to update this program, use PUT method."
                 })
+            } else {
+                await new Promise((resolve, reject) => setTimeout(() => resolve(), 3000));
+                let query = [...new Set(program["name"].replace(/('s|-)/g,"").replace(/\s{2,}/g," ").replace("/", " ").split(" "))].join(" ");
+                let search = await wiki_query(query);
+                let keywords = await watson_nlp(search);
+                let terms = await cortical(query);
+        
+                keywords = keywords.concat(terms);
+        
+                let p = await DB.Program.create({
+                    id: program["code"],
+                    title: program["name"],
+                    keywords: keywords
+                })
+                console.log(program["name"] + " program created.");
+                res.status(201).send(p);
             }
         });
-
-        // Fetch keywords for program
-        let query = [...new Set(program["title"].replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s{2,}/g," ").split(" "))].join(" ");
-        let terms = await cortical(query);
-
-        DB.Program.create({
-            id: code,
-            title: program["title"],
-            keywords: terms
-        }, (err, program) => {
-            if(err) {
-                return res.status(400).json({
-                    success: false,
-                    err: err
-                })
-            }
-            res.status(201).send(program);
-        })
     } catch(error) {
         console.error(error);
         return res.status(500).send(error.message);
@@ -243,71 +276,36 @@ Router.post("/career/:code", async(req, res) => {
     let code = req.params.code;
     let career = req.body;
     try {
-        DB.Career.findOne({id: code}, (err, doc) => {
+        DB.Career.findOne({id: code}, async(err, doc) => {
             if(err) {
-                res.status(404).json({
+                return res.status(404).json({
                     success: false,
                     err: err
                 })
             }
             if(doc) {
-                res.status(400).json({
+                return res.status(400).json({
                     success: false,
                     err: "Career already exists in database. If you wish to update this career, use PUT method."
                 })
+            } else {
+                await new Promise((resolve, reject) => setTimeout(() => resolve(), 3000));
+
+                let query = career["_title"] + " " + career["_description"][0].toLowerCase() + career["_description"].slice(1) + " " + career["_tasks"].join(" ") + " " + career["_technical_skills"].join(" ");
+                let keywords = await watson_nlp(query);
+                let terms = await cortical(career["_title"]);
+        
+                keywords = keywords.concat(terms);
+        
+                let p = await DB.Career.create({
+                    id: career["_code"],
+                    title: career["_title"],
+                    keywords: keywords
+                })
+                console.log(career["_title"] + " career created.");
+                res.status(201).send(p);
             }
         });
-
-        let payload = career["_title"] + " " + career["description"] + " " + career["_tasks"].join(" ") + " " + career["_technical_skills"].join(" ");
-        
-        // Fetch keywords for career
-        let options = {
-            uri: CORTICAL_URI + "text/keywords",
-            method: "POST",
-            json: true,
-            headers: {
-                "api-key": process.env.CORTICAL_API
-            },
-            qs: {
-                retina_name: "en_associative",
-            },
-            body: payload
-        }
-
-        let keywords = await rp(options);
-
-        const fn = async(cb, keyword) => {
-            let termOptions = options;
-        
-            termOptions["uri"] = CORTICAL_URI + "terms";
-            termOptions["qs"]["get_fingerprint"] = true;
-            termOptions["qs"]["term"] = keyword;
-
-            delete termOptions["method"];
-            delete termOptions["body"];
-
-            let term = await rp(termOptions);
-            let t = {
-                text: keyword,
-                fingerprint: term[0]["fingerprint"]
-            }
-            cb(t);
-        }
-        let terms = await new Throttler(keywords, RATE_LIMIT, RATE_LIMIT_TIME).execute(fn);
-
-        DB.Career.create({
-            id: code,
-            title: career["_title"],
-            keywords: terms
-        }, (err, career) => {
-            if(err) {
-                return res.status(400).json({
-                    success: false,
-                    err: err
-                })
-            }
-            res.status(201).send(career);
-        })
     } catch(error) {
         console.error(error);
         return res.status(500).send(error.message);
@@ -318,46 +316,18 @@ Router.put("/career/:code", async(req, res) => {
     let code = req.params.code;
     let career = req.body;
     try {
-        let payload = career["_title"] + " " + career["description"] + " " + career["_tasks"].join(" ") + " " + career["_technical_skills"].join(" ");
+        await new Promise((resolve, reject) => setTimeout(() => resolve(), 3000));
+        // let query = [...new Set(career["_title"].replace(/('s|-)/g,"").replace(/\s{2,}/g," ").replace("/", " ").split(" "))].join(" ");
+        // let search = await wiki_query(query);
+        let query = career["_title"] + " " + career["_description"][0].toLowerCase() + career["_description"].slice(1) + " " + career["_tasks"].join(" ") + " " + career["_technical_skills"].join(" ");
+        let keywords = await watson_nlp(query);
+        let terms = await cortical(career["_title"]);
 
-        // Fetch keywords for career
-        let options = {
-            uri: CORTICAL_URI + "text/keywords",
-            method: "POST",
-            json: true,
-            headers: {
-                "api-key": process.env.CORTICAL_API
-            },
-            qs: {
-                retina_name: "en_associative",
-            },
-            body: payload
-        }
-
-        let keywords = await rp(options);
-
-        const fn = async(cb, keyword) => {
-            let termOptions = options;
-        
-            termOptions["uri"] = CORTICAL_URI + "terms";
-            termOptions["qs"]["get_fingerprint"] = true;
-            termOptions["qs"]["term"] = keyword;
-
-            delete termOptions["method"];
-            delete termOptions["body"];
-
-            let term = await rp(termOptions);
-            let t = {
-                text: keyword,
-                fingerprint: term[0]["fingerprint"]
-            }
-            cb(t);
-        }
-        let terms = await new Throttler(keywords, RATE_LIMIT, RATE_LIMIT_TIME).execute(fn);
+        keywords = keywords.concat(terms);
 
         let update = {
             title: career["title"],
-            keywords: terms
+            keywords: keywords
         }
         DB.Career.findOneAndUpdate({ id: code }, update, {new: true}, (err, career) => {
             if(err) {

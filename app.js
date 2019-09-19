@@ -30,7 +30,8 @@ mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopo
 
 app.use(cors({
     allowedHeaders: ["Content-Type"],
-    methods: "GET, POST, PUT, DELETE, PATCH, HEAD"
+    methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
+    origin: "*"
 }));
 app.use(bodyParser.json());
 app.use("/admin", AdminRouter);
@@ -111,37 +112,3 @@ app.get("/cortical/fingerprints", async(req, res) => {
 })
 
 app.listen(PORT, () => console.log(`App running on port: ${PORT}.`));
-
-const program_keywords = (program) => {
-    let str = [];
-    program["degree_types"].forEach(type => {
-        let s = type.split(" ");
-        str.push(...s);
-    })
-    program["degrees"].forEach(degree => {
-        let s = degree.replace(":", "").replace("-", "").split(" ");
-        str.push(...s);
-    })
-    program["keywords"].forEach(keyword => {
-        let s = keyword.split(" ");
-        str.push(...s);
-    })
-    str = [...new Set(str)];
-
-    return str;
-}
-const course_keywords = (course) => {
-    let str = [];
-
-    str.push(...course["course_id"].split(" "));
-    str.push(...course["title"].split(" "));
-
-    course["keywords"].forEach(keyword => {
-        let s = keyword.split(" ");
-        str.push(...s);
-    })
-    str = [...new Set(str)].join("");
-
-    course["search"] = str.toLowerCase();
-    return course;
-}
