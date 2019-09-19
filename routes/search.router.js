@@ -60,7 +60,7 @@ Router.get("/courses", async(req, res) => {
     res.status(200).send(results);
 })
 
-Router.get("/careers", (req, res) => {
+Router.get("/careers", async(req, res) => {
     CareerEngine._init()
 
     let query = req.query;
