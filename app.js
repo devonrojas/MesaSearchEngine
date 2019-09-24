@@ -86,7 +86,7 @@ app.get("/course/:id", (req, res) => {
 const PROGRAMS = require("./programs.json")["programs"];
 
 app.get("/program/:id", (req, res) => {
-    let i = PROGRAMS.map(program => program["code"]).indexOf(req.params.id);
+    let i = PROGRAMS.map(program => program["code"]).indexOf(+req.params.id);
     if(i !== -1) {
         res.status(200).send(PROGRAMS[i]["description"]);
     } else {
