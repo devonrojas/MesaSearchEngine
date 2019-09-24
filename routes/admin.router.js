@@ -22,7 +22,7 @@ const RATE_LIMIT = 1;
 const RATE_LIMIT_TIME = 1000; // ms
 
 // Static data files
-const programs = require("../search.json")["programs"];
+const programs = require("../program.json")["programs"];
 const courses = require("../courses.json");
 
 /**
