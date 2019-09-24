@@ -83,7 +83,7 @@ app.get("/course/:id", (req, res) => {
     }
 })
 
-const PROGRAMS = require("./programs.json");
+const PROGRAMS = require("./programs.json")["programs"];
 
 app.get("/program/:id", (req, res) => {
     let i = PROGRAMS.map(program => program["code"]).indexOf(req.params.id);
