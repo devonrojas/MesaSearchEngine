@@ -8,10 +8,16 @@
 
 // Package imports
 require("dotenv").config();
+const { promisify } = require("util");
+const fs = require("fs");
+
+const readFileAsync = promisify(fs.readFile);
+const writeFileAsync = promisify(fs.writeFile);
 
 // Module imports
 const DB = require("../db");
 const { asyncForEach } = require("../helpers");
+
 
 /**
  * Handles the search for a particular search category
@@ -26,13 +32,22 @@ class SearchEngine {
         this._type = type;
         this.docs;
         this.length;
+        this._cache_file = __basedir + "/cache/" + this._type.toLowerCase() + "s.json";
+        this._cached = false;
     }
 
     /**
      * Loads search engine with all documents of type passed in to constructor
      */
     async _init() {
-        let docs = await DB[this._type].find({});
+        let docs;
+        if(!this.cached) {
+            docs = await DB[this._type].find({});
+            await writeFileAsync(this._cache_file, JSON.stringify(docs));
+            this.cached = true;
+        } else {
+            docs = JSON.parse(await readFileAsync(this._cache_file));
+        }
         this.docs = docs.map(doc => new Document(doc["id"], doc["title"], doc["keywords"]));
         this.length = docs.length;
     }

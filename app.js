@@ -12,6 +12,7 @@
  */
 require("dotenv").config();
 const PORT = process.env.PORT || 9000;
+global.__basedir = __dirname;
 
 // Package imports
 const express = require("express");
