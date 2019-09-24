@@ -72,5 +72,16 @@ app.get("/", (req, res) => {
     res.status(200).send(html);
 })
 
+const COURSES = require("./courses.json");
+
+app.get("/course/:id", (req, res) => {
+    let i = COURSES.map(course => course["course_id"]).indexOf(req.params.id);
+    if(i !== -1) {
+        res.status(200).send(COURSES[i]["description"]);
+    } else {
+        res.status(404).send("Course not found.");
+    }
+})
+
 // Instantiates Express application on specified PORT
 app.listen(PORT, () => console.log(`App running on port: ${PORT}.`));
