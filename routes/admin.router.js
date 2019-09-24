@@ -160,7 +160,7 @@ Router.get("/generatecourses", async(req, res) => {
                     console.error(err);
                 }
                 if(doc) {
-                    console.error(doc["title"] + " program already exists.");
+                    console.error(doc["title"] + " course already exists.");
                 } else {
                     await new Promise((resolve, reject) => setTimeout(() => resolve(), 3000));
                     let query = [...new Set(course["title"].replace(/('s|-|,)/g,"").replace(/\s{2,}/g," ").replace("/", " ").split(" "))].join(" ");
