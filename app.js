@@ -83,5 +83,16 @@ app.get("/course/:id", (req, res) => {
     }
 })
 
+const PROGRAMS = require("./programs.json");
+
+app.get("/program/:id", (req, res) => {
+    let i = PROGRAMS.map(program => program["code"]).indexOf(req.params.id);
+    if(i !== -1) {
+        res.status(200).send(PROGRAMS[i]["description"]);
+    } else {
+        res.status(404).send("Program not found.");
+    }
+})
+
 // Instantiates Express application on specified PORT
 app.listen(PORT, () => console.log(`App running on port: ${PORT}.`));
