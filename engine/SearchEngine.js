@@ -33,7 +33,7 @@ class SearchEngine {
      */
     async _init() {
         let docs = await DB[this._type].find({});
-        this.docs = docs.map(doc => new Document(doc["title"], doc["keywords"]));
+        this.docs = docs.map(doc => new Document(doc["id"], doc["title"], doc["keywords"]));
         this.length = docs.length;
     }
 
@@ -82,6 +82,7 @@ class SearchEngine {
         return this.docs.map(doc => {
             return {
                 id: doc["id"],
+                title: doc["title"],
                 score: doc["score"],
                 query: doc["query"]
             }
@@ -108,8 +109,9 @@ class SearchEngine {
 }
 
 class Document {
-    constructor(id, keywords) {
+    constructor(id, title, keywords) {
         this.id = id;
+        this.title = title;
         this.keywords = keywords.map(keyword => keyword.toLowerCase());
         this.query = [];
         this.score = 0;
@@ -129,8 +131,14 @@ class Document {
         this.query.forEach(term => {
             term["score"] = term["_idf"] * term["_wd"];
             this.score += term["score"];
-            if(this.id.toLowerCase().includes(term["word"])) {
+            if(this.title.toLowerCase().includes(term["word"])) {
                 this.score++;
+            } else if(typeof this.id === "string" && isNaN(this.id.charAt(0))) {
+                let digit = this.id.search(/\d/);
+                let str = this.id.slice(0, digit);
+                if(str.toLowerCase().includes(term["word"])) {
+                    this.score+=2;
+                }
             }
         })
         // await asyncForEach(this.query, async(term) => {

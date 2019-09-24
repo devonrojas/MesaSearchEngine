@@ -67,7 +67,8 @@ app.use("/search", SearchRouter);
  * @memberof module:MesaSearchEngine~app
  */
 app.get("/", (req, res) => {
-    res.sendStatus(200);
+    const html = "<b>List of available routes:</b><p>/admin<br>/search</p>"
+    res.status(200).send(html);
 })
 
 // Instantiates Express application on specified PORT

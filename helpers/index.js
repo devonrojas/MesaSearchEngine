@@ -11,6 +11,7 @@
 const { wiki_query } = require("./wikipedia.service");
 const { watson_nlp } = require("./watsonnlp.service");
 const { cortical } = require("./cortical.service");
+const AuthController = require("./auth.service");
 
 /**
  * Asynchronously executes a callback function for each element in an array.
@@ -46,5 +47,6 @@ module.exports = {
     clean_stop_words,
     wiki_query,
     watson_nlp,
-    cortical
+    cortical,
+    AuthController
 }

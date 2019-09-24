@@ -30,7 +30,8 @@ const Router = express.Router();
  * @memberof module:routes/search~searchRouter
  */
 Router.get("/", (req, res) => {
-    res.sendStatus(200);
+    const html = "<b>List of available /search routes:</b><p>/programs<br>/courses<br>/careers</p>"
+    res.status(200).send(html);
 })
 
 /**

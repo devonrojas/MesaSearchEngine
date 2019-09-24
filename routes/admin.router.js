@@ -15,7 +15,7 @@ const express = require("express")
 const rp = require("request-promise");
 
 // Module imports
-const { wiki_query, watson_nlp, cortical } = require("../helpers");
+const { wiki_query, watson_nlp, cortical, AuthController } = require("../helpers");
 const DB = require("../db");
 const Throttler = require("../engine/Throttler.js");
 const RATE_LIMIT = 1;
@@ -33,8 +33,7 @@ const courses = require("../courses.json");
 const Router = express.Router();
 
 // Admin authentication
-// Router.use(AuthController);
-
+Router.use(AuthController);
 
 /*==============================================
               GENERATOR ENDPOINTS
