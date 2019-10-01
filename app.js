@@ -12,6 +12,11 @@
  */
 require("dotenv").config();
 const PORT = process.env.PORT || 9000;
+const ONE_SECOND = 1000;
+const ONE_MINUTE = ONE_SECOND * 60;
+const ONE_HOUR = ONE_MINUTE * 60;
+const ONE_DAY = ONE_HOUR * 24;
+
 global.__basedir = __dirname;
 
 // Package imports
@@ -21,36 +26,35 @@ const bodyParser = require("body-parser");
 const http = require("http");
 const mongoose = require("mongoose");
 const rp = require("request-promise");
-const fs = require("fs");
 
 // Express routers
 const { AdminRouter, SearchRouter } = require("./routes");
 
-// Keep server alive
+// Keep server alive & refresh cached data
+var other_program_data = require("./programs.json")["programs"];
+var PROGRAMS, COURSES;
 setInterval(() => {
     http.get("http://polar-wave-14549.herokuapp.com/");
-}, 300000);
+    rp(process.env.SDMESA_ONET_URI + "/program?detail=true", {json: true})
+    .then(res => {
+        console.log(res["programs"][0])
+        PROGRAMS = res["programs"];
+        PROGRAMS.map(program => {
+            console.log(program);
+            let p = other_program_data.find(p => p["code"] === program["code"]);
+            program["description"] = p["description"];
+            return program;
+        })
+    })
+    .catch(err => console.error(err));
+    rp(process.env.SDMESA_COURSES_URI, {json: true})
+    .then(res => COURSES = res);
+}, ONE_MINUTE * 30);
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => console.log("Connected to database..."))
 .catch(err => console.error("Could not connect to database..."));
-
-var other_program_data = require("./programs.json")["programs"];
-var PROGRAMS, COURSES;
-rp(process.env.SDMESA_ONET_URI + "/program?detail=true", {json: true})
-.then(res => {
-    PROGRAMS = res["programs"];
-    PROGRAMS.map(program => {
-        console.log(program);
-        let p = other_program_data.find(p => p["code"] === program["code"]);
-        program["description"] = p["description"];
-        return program;
-    })
-})
-.catch(err => console.error(err));
-rp(process.env.SDMESA_COURSES_URI, {json: true})
-.then(res => COURSES = res);
 
 /**
  * express module
