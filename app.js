@@ -36,9 +36,19 @@ mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopo
 .then(() => console.log("Connected to database..."))
 .catch(err => console.error("Could not connect to database..."));
 
+var other_program_data = require("./programs.json")["programs"];
 var PROGRAMS, COURSES;
 rp(process.env.SDMESA_ONET_URI + "/program", {json: true})
-.then(res => PROGRAMS = res["programs"]);
+.then(res => {
+    PROGRAMS = res["programs"];
+    PROGRAMS.map(program => {
+        console.log(program);
+        let p = other_program_data.find(p => p["code"] === program["code"]);
+        program["description"] = p["description"];
+        return program;
+    })
+})
+.catch(err => console.error(err));
 rp(process.env.SDMESA_COURSES_URI, {json: true})
 .then(res => COURSES = res);
 

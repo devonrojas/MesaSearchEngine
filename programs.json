@@ -649,6 +649,16 @@
             "keywords": ["gender", "philosophy", "psychology", "women", "sexism", "racism", "literature"],
             "filters": [""],
             "aoi": ["area1", "area5"]
+        },
+        {
+            "code": 65,
+            "name": "Teacher Education",
+            "description": "",
+            "degrees": ["Associate of Arts: Elementary Education Preparation"],
+            "degree_types": ["AA"],
+            "keywords": ["teacher", "education", "elementary", "interdisciplinary"],
+            "filters": [""],
+            "aoi": ["area1", "area4"]
         }
     ]
 }
