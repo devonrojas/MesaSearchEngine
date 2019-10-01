@@ -44,7 +44,7 @@ const app = express();
 
 // Request middleware
 app.use(cors({
-    allowedHeaders: ["Content-Type"],
+    allowedHeaders: ["Content-Type", "Mesa-API"],
     methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
     origin: "*"
 }));
@@ -77,7 +77,7 @@ const COURSES = require("./courses.json");
 app.get("/course/:id", (req, res) => {
     let i = COURSES.map(course => course["course_id"]).indexOf(req.params.id);
     if(i !== -1) {
-        res.status(200).send(COURSES[i]["description"]);
+        res.status(200).send(COURSES[i]);
     } else {
         res.status(404).send("Course not found.");
     }
@@ -88,7 +88,7 @@ const PROGRAMS = require("./programs.json")["programs"];
 app.get("/program/:id", (req, res) => {
     let i = PROGRAMS.map(program => program["code"]).indexOf(+req.params.id);
     if(i !== -1) {
-        res.status(200).send(PROGRAMS[i]["description"]);
+        res.status(200).send(PROGRAMS[i]);
     } else {
         res.status(404).send("Program not found.");
     }
