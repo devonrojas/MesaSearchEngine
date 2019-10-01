@@ -38,7 +38,7 @@ mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopo
 
 var other_program_data = require("./programs.json")["programs"];
 var PROGRAMS, COURSES;
-rp(process.env.SDMESA_ONET_URI + "/program", {json: true})
+rp(process.env.SDMESA_ONET_URI + "/program?detail=true", {json: true})
 .then(res => {
     PROGRAMS = res["programs"];
     PROGRAMS.map(program => {
