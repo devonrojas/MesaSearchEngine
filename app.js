@@ -51,6 +51,22 @@ setInterval(() => {
     .then(res => COURSES = res);
 }, ONE_MINUTE * 30);
 
+// Execute once on init
+rp(process.env.SDMESA_ONET_URI + "/program?detail=true", {json: true})
+.then(res => {
+    console.log(res["programs"][0])
+    PROGRAMS = res["programs"];
+    PROGRAMS.map(program => {
+        console.log(program);
+        let p = other_program_data.find(p => p["code"] === program["code"]);
+        program["description"] = p["description"];
+        return program;
+    })
+})
+.catch(err => console.error(err));
+rp(process.env.SDMESA_COURSES_URI, {json: true})
+.then(res => COURSES = res);
+
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => console.log("Connected to database..."))
