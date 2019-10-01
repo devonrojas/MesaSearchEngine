@@ -20,6 +20,8 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const http = require("http");
 const mongoose = require("mongoose");
+const rp = require("request-promise");
+const fs = require("fs");
 
 // Express routers
 const { AdminRouter, SearchRouter } = require("./routes");
@@ -33,6 +35,12 @@ setInterval(() => {
 mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => console.log("Connected to database..."))
 .catch(err => console.error("Could not connect to database..."));
+
+var PROGRAMS, COURSES;
+rp(process.env.SDMESA_ONET_URI + "/program", {json: true})
+.then(res => PROGRAMS = res["programs"]);
+rp(process.env.SDMESA_COURSES_URI, {json: true})
+.then(res => COURSES = res);
 
 /**
  * express module
@@ -72,18 +80,14 @@ app.get("/", (req, res) => {
     res.status(200).send(html);
 })
 
-const COURSES = require("./courses.json");
-
 app.get("/course/:id", (req, res) => {
-    let i = COURSES.map(course => course["course_id"]).indexOf(req.params.id);
+    let i = Object.keys(COURSES).indexOf(req.params.id);
     if(i !== -1) {
-        res.status(200).send(COURSES[i]);
+        res.status(200).send(COURSES[req.params.id]);
     } else {
         res.status(404).send("Course not found.");
     }
 })
-
-const PROGRAMS = require("./programs.json")["programs"];
 
 app.get("/program/:id", (req, res) => {
     let i = PROGRAMS.map(program => program["code"]).indexOf(+req.params.id);
