@@ -91,7 +91,7 @@ Router.get("/courses", async(req, res) => {
         }
     }
 
-    let results = await CourseEngine.search(...terms)
+    let results = await CourseEngine.search(...terms);
     if(searchLimit) {
         results = results.slice(0, searchLimit);
     }

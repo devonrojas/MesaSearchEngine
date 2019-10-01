@@ -32,8 +32,29 @@ const courses = require("../courses.json");
  */
 const Router = express.Router();
 
+const new_courses = require("../new_courses.json");
+
 // Admin authentication
 Router.use(AuthController);
+
+Router.get("/test", async(req, res) => {
+    let courses = await DB.Course.find({});
+    courses = courses.map(course => course["id"]);
+    courses.forEach(async(course) => {
+        if(new_courses[course]) {
+            DB.Course.findOneAndUpdate({id: course}, {active: true}, {new: true}, (err,doc) => {
+                console.log(doc);
+                console.log("Updated " + course + " with active status.")
+            })
+        } else {
+            DB.Course.findOneAndUpdate({id: course}, {active: false}, {new: true}, (err,doc) => {
+                console.log(doc);
+                console.log("Updated " + course + " with inactive status.")
+            })
+        }
+    })
+    res.status(200).send("Complete");
+})
 
 /*==============================================
               GENERATOR ENDPOINTS

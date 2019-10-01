@@ -48,7 +48,7 @@ class SearchEngine {
         } else {
             docs = JSON.parse(await readFileAsync(this._cache_file));
         }
-        this.docs = docs.map(doc => new Document(doc["id"], doc["title"], doc["keywords"]));
+        this.docs = docs.filter(doc => doc["active"]).map(doc => new Document(doc["id"], doc["title"], doc["keywords"]));
         this.length = docs.length;
     }
 
