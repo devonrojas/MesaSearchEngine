@@ -48,7 +48,14 @@ class SearchEngine {
         } else {
             docs = JSON.parse(await readFileAsync(this._cache_file));
         }
-        this.docs = docs.filter(doc => doc["active"]).map(doc => new Document(doc["id"], doc["title"], doc["keywords"]));
+        this.docs = docs.filter(doc => {
+            // Allow for course active/inactive status
+            if(doc.hasOwnProperty("active")) {
+                return doc["active"];
+            } else {
+                return true;
+            }
+        }).map(doc => new Document(doc["id"], doc["title"], doc["keywords"]));
         this.length = docs.length;
     }
 
