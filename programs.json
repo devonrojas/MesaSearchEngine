@@ -2,7 +2,7 @@
     "programs": [
         {
             "code": 1,
-            "name": "Accounting",
+            "title": "Accounting",
             "description": "Qualifies the graduate as a bookkeeper, account clerk, accounting technician, audit or tax aide, or accountant trainee. Subjects of immediate practical value enable the student to work part-time in the field while completing the curriculum. The certificate program is for students desiring early employment. Students planning to transfer to a four-year college or university as an accounting major should major in Business Administration.",
             "degrees": ["Associate of Science: Accounting", "Certificate of Achievement: Accounting", "Certificate of Performance: Governmental/Nonprofit Accounting"],
             "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate of Performance", "Certificate"],
@@ -12,7 +12,7 @@
         },
         {
             "code": 2,
-            "name": "American Sign Language",
+            "title": "American Sign Language",
             "description": "The American Sign Language (ASL) Studies and the ASL—English Interpretation programs offer students a variety of certificate and degree options designed to prepare them for transfer to four-year institutions as well as for deafness-related careers in the public and private sectors.",
             "degrees": ["Associate of Arts: American Sign Language Studies", "Associate of Arts: ASL-English Interpretation", "Certificate of Achievement: American Sign Language Studies", "Certificate of Achievement: ASL-English Interpretation"],
             "degree_types": ["Associate of Arts", "AA", "Certificate of Achievement", "Certificate of Performance", "Certificate"],
@@ -22,7 +22,7 @@
         },
         {
             "code": 3,
-            "name": "Animal Health Technology",
+            "title": "Animal Health Technology",
             "description": "The Animal Health Technology program prepares students for careers in the veterinary medical arena. The program is approved by the California Department of Consumer Affairs and the Veterinary Medical Board. Graduates may become Registered Veterinary Technicians (RVT) upon passing an Animal Health Technology examination offered by the California Department of Consumer Affairs.",
             "degrees": ["Associate of Science: Animal Health Technology"],
             "degree_types": ["Associate of Science", "AS"],
@@ -32,7 +32,7 @@
         },
         {
             "code": 4,
-            "name": "Anthropology",
+            "title": "Anthropology",
             "description": "Anthropology is the study of what it means to be human, with a worldwide perspective and a time depth of millions of years. It encompasses five sub-fields of cultural anthropology, biological anthropology, archaeology, linguistic anthropology, and applied anthropology. The study of anthropology prepares students to better understand themselves in their own sociocultural context, better understand and communicate across cultural boundaries, and prepare for careers involving social interaction and policy (EG, business, education, environmental protection and cultural resource management, health, law, and religion).",
             "degrees": ["Associate of Arts: Anthropology", "Associate of Arts for Transfer: Anthropology"],
             "degree_types": ["Associate of Arts", "AA", "Associate of Arts for Transfer", "ADT"],
@@ -42,7 +42,7 @@
         },
         {
             "code": 5,
-            "name": "Architecture",
+            "title": "Architecture",
             "description": "The Architecture Program at Mesa College has two main focuses: transfer to university Architecture programs and preparation for direct employment in architecture or a related design office.  Because employment in the architectural profession has become increasingly selective, often requiring a Bachelor of Arts or Science degree in Architecture or a Bachelors of Architecture for entry-level positions, the Mesa College program is focused primarily on transferring qualified students to university programs offering those degrees.  Understanding the architect’s important role in protecting the environment is paramount.  The integration of sustainable design principles within a project’s overall solution continues to be a natural extension of the holistic, collaborative design approach which is the foundation of Mesa College’s architecture curriculum.",
             "degrees": ["Associate of Science: Architecture Technician", "Associate of Science: Architecture Design", "Associate of Science: Construction Management", "Associate of Science: Architecture - University Track"],
             "degree_types": ["Associate of Science", "AS"],
@@ -52,7 +52,7 @@
         },
         {
             "code": 6,
-            "name": "Art - Fine Art",
+            "title": "Art - Fine Art",
             "description": "The Fine Arts program aims to develop student understanding of current and historical art practices and theoretical issues. The program investigates new media and technologies as it builds upon foundational skills. It strives to provide a challenging learning environment of research, originality and experimentation through student engagement and interaction. The major consists of six core courses, plus additional courses that define an 'area of emphasis.'",
             "degrees": ["Associate of Arts: Art History", "Associate of Arts: Ceramics Emphasis", "Associate of Arts: Digital Art Emphasis", "Associate of Arts: Museum Studies", "Associate of Arts: Photography and New Genres Emphasis", "Associate of Arts: Three-Dimensional Emphasis", "Associate of Arts: Two-Dimensional Emphasis", "Associate of Arts for Transfer: Art History", "Associate of Arts for Transfer: Studio Arts", "Certificate of Performance: Fine Art", "Certificate of Performance: Museum Studies"],
             "degree_types": ["Associate of Arts", "AA", "Associate of Arts for Transfer", "ADT", "Certificate of Performance", "Certificate"],
@@ -62,7 +62,7 @@
         },
         {
             "code": 7,
-            "name": "Biology",
+            "title": "Biology",
             "description": "Biology is a natural science that focuses on physical and chemical processes of living organisms. This discipline explores how organisms acquire and use energy to maintain homeostasis, how they reproduce, and how they interact with each other and their environment. Scientific processes are emphasized as a means of answering these biological questions. Biologists rely heavily on a chemistry foundation since living organisms are chemical systems.",
             "degrees": ["Associate of Science: Allied Health Track", "Associate of Science: Applied Biology Track", "Associate of Science: Transfer Track", "Certificate of Performance: Applied Biotechnology"],
             "degree_types": ["Associate of Science", "AS", "Certificate of Performance", "Certificate"],
@@ -72,7 +72,7 @@
         },
         {
             "code": 8,
-            "name": "Black Studies",
+            "title": "Black Studies",
             "description": "Black Studies is a multidisciplinary curriculum offering courses in American Institutions, Humanities, Social Sciences, and Learning Skills. The program builds a positive understanding and knowledge of the history, culture, and contributions of Africans and Afro-Americans. All students benefit from courses in Black Studies, especially those who pursue careers in social sciences, education, law, counseling, journalism, social work, health care professions, teaching, business, and public administration.",
             "degrees": ["Associate of Arts: Black Studies"],
             "degree_types": ["Associate of Arts", "AA"],
@@ -82,7 +82,7 @@
         },
         {
             "code": 9,
-            "name": "Building Construction Technology",
+            "title": "Building Construction Technology",
             "description": "This program is designed for the student who is interested in a Construction Inspection or Construction Management career. Program planning should occur with the assistance of a department member.",
             "degrees": ["Associate of Science: Inspection", "Certificate of Achievement: Inspection"],
             "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
@@ -92,7 +92,7 @@
         },
         {
             "code": 10,
-            "name": "Business Administration",
+            "title": "Business Administration",
             "description": "Prepares the student for transfer to a four-year college through maximum use of equivalent courses. It also provides a foundation for entry into business",
             "degrees": ["Associate of Science: Business Administration", "Associate of Science for Transfer: Business Administration", "Certificate of Achievement: Business Administration"],
             "degree_types": ["Associate of Science", "AS", "Associate of Science for Transfer", "ADT", "Certificate of Achievement", "Certificate"],
@@ -102,7 +102,7 @@
         },
         {
             "code": 11,
-            "name": "Business Management",
+            "title": "Business Management",
             "description": "Intended for the student who wishes to plan a program in preparation for a business occupational area of their own choice. Flexible course selection is emphasized to enable students to achieve their specific educational, vocational and personal goals. Students planning to transfer to a four-year college or university should select the Business Administration major.",
             "degrees": ["Associate of Science: Business Management", "Certificate of Achievement: Businss Management"],
             "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
@@ -112,7 +112,7 @@
         },
         {
             "code": 12,
-            "name": "Chemistry",
+            "title": "Chemistry",
             "description": "Upon completion of the required pattern of Chemistry courses and other degree graduation requirements an Associate of Science Degree in Chemistry will be granted. A certificate program is also offered in Chemistry.",
             "degrees": ["Associate of Science: Chemistry", "Associate of Science: Chemistry Technician", "Certificate of Achievement: Chemistry", "Certificate of Achievement: Chemistry Technician"],
             "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
@@ -122,7 +122,7 @@
         },
         {
             "code": 13,
-            "name": "Chicana and Chicano Studies",
+            "title": "Chicana and Chicano Studies",
             "description": "The Department of Chicana and Chicano Studies offers a dynamic, innovative program that emphasizes an interdisciplinary and comparative approach to understanding the historical experiences, contemporary social status, challenges, and accomplishments of Mexican, Mexican American, and Latino populations in the United States. Critical thinking and effective oral and written communication skills are integrated across the curriculum, which incorporates the arts and literature, cultural studies, history, the social sciences, policy studies, service learning, and active participation for social justice.",
             "degrees": ["Associate of Arts: Chicana and Chicano Studies"],
             "degree_types": ["Associate of Arts", "AA"],
@@ -132,7 +132,7 @@
         },
         {
             "code": 14,
-            "name": "Child Development",
+            "title": "Child Development",
             "description": "Child Development offers programs for career and transfer students. Certificates of Performance, Certificates of Achievement and an Associate of Science Degree are available to students interested in a range of child development opportunities and in meeting the requirements for the State of California Child Development permits and the California State Department of Social Services, Title 22, Community Care Licensing.",
             "degrees": ["Associate of Science: Child Development", "Certificate of Achievement: Associate Teacher", "Certificate of Achievement: Master Teacher", "Certificate of Achievement: Teacher", "Certificate of Performance: Assistant Teacher", "Certificate of Performance: Home Day Care"],
             "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate of Performance", "Certificate"],
@@ -142,7 +142,7 @@
         }, 
         {
             "code": 15,
-            "name": "Communications Studies",
+            "title": "Communications Studies",
             "description": "This program is designed to offer the Associate of Arts degree and Certificate of Performance as well as a broad spectrum of communication classes that provide preparation for the major in Communication, and training for occupations in which public contact and verbal skills are important.",
             "degrees": ["Associate of Arts: Communication Studies", "Associate of Arts for Transfer: Communication Studies", "Certificate of Performance: Communication Studies"],
             "degree_types": ["Associate of Arts", "AA", "Associate of Arts for Transfer", "ADT", "Certificate of Performance", "Certificate"],
@@ -152,7 +152,7 @@
         },
         {
             "code": 16,
-            "name": "Computer Business Technology",
+            "title": "Computer Business Technology",
             "description": "Computers are ubiquitous in all aspects of business and industry. Computer Business Technology is a versatile field that offers employment opportunities in a variety of business settings. The Computer Business Technology Associate Degree and Certificate programs are  designed to prepare students for positions as working professionals with the opportunity to enhance and modernize their skills in computer technologies, information records management, and a variety of computer-related office skills.",
             "degrees": ["Associate of Science: Administrative Assistant", "Certificate of Achievement: Business Information Worker I"],
             "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
@@ -162,7 +162,7 @@
         },
         {
             "code": 17,
-            "name": "Computer and Information Sciences",
+            "title": "Computer and Information Sciences",
             "description": "Prepares students for employment in the rapidly expanding field of Computer and Information Sciences and offers the skills required to function effectively in various occupations and professions requiring the use of computers. Required courses focus upon the use and functioning of the computer and relate the general study of the computer with studies of specific languages, enabling the student to combine computer hardware and software to process data into information. Upon completion of this curriculum, the student should have the capability to apply computer technology to diverse business and professional environments and be qualified for employment as an entry-level programmer in the computer and information sciences industry or transfer to 4 year institution.",
             "degrees": ["Associate of Science: Computer and Information Sciences", "Certificate of Achievement: Computer and Information Sciences", "Certificate of Performance: Computer Programming"],
             "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate of Performance", "Certificate"],
@@ -172,7 +172,7 @@
         },
         {
             "code": 18,
-            "name": "Culinary Arts/Culinary Management in Hospitality",
+            "title": "Culinary Arts/Culinary Management in Hospitality",
             "description": "Students in Culinary Arts/Culinary Management enjoy a practical hands-on approach to innovative methods and classical techniques, as well as numerous cuisines. A rigorous training program combines both laboratory and general education coursework, in addition to business courses including supervision and cost control. Students are prepared for employment and for transfer to four year programs.",
             "degrees": ["Associate of Science: Culinary Arts/Culinary Management in Hospitality", "Certificate of Achievement: Culinary Arts/Culinary Management in Hospitality"],
             "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
@@ -182,7 +182,7 @@
         },
         {
             "code": 19,
-            "name": "Dance",
+            "title": "Dance",
             "description": "The Mesa College Dance Program offers a comprehensive curriculum designed to provide practical and theoretical training for students interested in a dance career. The core curriculum provides an excellent foundation in dance technique, choreography and performance skills. In addition, this program offers lower division theory courses to prepare the student for transfer to a four-year institution as a dance major. Students planning to transfer to a school of dance should consult with a counselor to select acceptable transfer courses.",
             "degrees": ["Associate of Arts: Dance", "Certificate of Achievement: Commercial Dance", "Certificate of Achievement: Choreography", "Certificate of Performance: Dance"],
             "degree_types": ["Associate of Arts", "AA", "Certificate of Performance", "Certificate of Achievement", "Certificate"],
@@ -192,7 +192,7 @@
         },
         {
             "code": 20,
-            "name": "Dental Assisting",
+            "title": "Dental Assisting",
             "description": "This program has a prerequisite course that is offered during the summer session only. This program is a two-semester certificate program which prepares the student for employment to work as a Dental Assistant (DA) as well as prepares the student for their state and national boards. Training includes four and six-handed dentistry in: basic and advanced chairside dental support procedures; sterilization of instruments and infection control; prepare and manipulate a variety of dental materials; work on the dental patients under the supervision of the dentist; California Dental Practice Act; oral and written communications in the dental setting; operate dental x-ray equipment including exposing, processing, and mounting dental radiographs manually and digitally; coronal polish; dental business administration software and responsibilities are also taught as well as all dental specialties. Students must complete four units of Directed Clinical Practice. This allows the student to participate in the externship to advance their clinical skills.",
             "degrees": ["Associate of Science: Dental Assisting (RDA, CDA)", "Certificate of Achievement: Dental Assisting (RDA, CDA)"],
             "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
@@ -202,7 +202,7 @@
         },
         {
             "code": 21,
-            "name": "Dramatic Arts",
+            "title": "Dramatic Arts",
             "description": "The Dramatic Arts program consists of an Associate of Arts degree. The AA degree consists of participation in the Mesa College Theatre Company (MCTC), plus two courses designed to complement the student's breadth of knowledge in the dramatic arts. MCTC is designed as a two-year training program encompassing study in the areas of acting, scenery, lighting, costumes, and management. Practical, hands-on production experience combined with more formal instruction provides a comprehensive introduction to the dramatic arts as either a career option or a field of study. Students planning to transfer to four-year schools should consult catalogs for those schools. Some courses listed below as electives may transfer only as electives, rather than as lower division requirements.",
             "degrees": ["Associate of Arts: Dramatic Arts", "Associate of Arts for Transfer: Theatre Arts"],
             "degree_types": ["Associate of Arts", "AA", "Associate of Arts for Transfer", "ADT"],
@@ -212,7 +212,7 @@
         },
         {
             "code": 66,
-            "name": "Economics",
+            "title": "Economics",
             "description": "The Associate in Arts in Economics for Transfer is intended for students who plan to complete a bachelor’s degree in Economics or a related major in the California State University (CSU) system. It is accepted by some but not all CSU campuses. Students who complete this degree and transfer to a participating CSU campus will be required to complete no more than 60 units after transfer to earn a bachelor’s degree. It may not be appropriate preparation for students transferring to a CSU campus that does not accept the degree.",
             "degrees": ["Associate of Arts for Transfer: Economics"],
             "degree_types": ["Associate of Arts for Transfer", "ADT"],
@@ -222,7 +222,7 @@
         },
         {
             "code": 22,
-            "name": "Education",
+            "title": "Education",
             "description": "The Associate in Arts for Transfer in Elementary Teacher Education is intended for students who plan to complete a bachelor’s degree in Elementary Teacher Education or a related major in the California State University (CSU) system. It is accepted by some but not all CSU campuses. Students who complete this degree and transfer to a participating CSU campus will be required to complete no more than 60 units after transfer to earn a bachelor’s degree. It may not be appropriate preparation for students transferring to a CSU campus that does not accept the degree.",
             "degrees": ["Associate of Arts: Elementary Teacher Education for Transfer"],
             "degree_types": ["Associate of Arts", "AA"],
@@ -232,7 +232,7 @@
         },
         {
             "code": 23,
-            "name": "Engineering",
+            "title": "Engineering",
             "description": "Upon completion of the required pattern of engineering courses and other degree graduation requirements an Associate of Science Degree in Engineering will be granted. A certificate program is also offered in engineering.",
             "degrees": ["Associate of Science: Engineering", "Certificates of Achievement: Engineering"],
             "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
@@ -242,7 +242,7 @@
         },
         {
             "code": 24,
-            "name": "English",
+            "title": "English",
             "description": "For students seeking a broad appreciation of literature and increased skills in communication. Superior ability to understand and use English is necessary for success in such careers as education, writing, advertising, selling, journalism, law, business and government. Students planning to transfer to a four-year institution should learn the requirements for English majors at that institution.",
             "degrees": ["Associate of Arts: English", "Associate of Arts for Transfer: English", "Certificate of Achievement: Creative Writing", "Certificate of Performance: Creative Writing"],
             "degree_types": ["Associate of Arts", "AA", "Associate of Arts for Transfer", "ADT", "Certificate of Performance", "Certificate of Achievement", "Certificate"],
@@ -252,7 +252,7 @@
         },
         {
             "code": 64,
-            "name": "Entrepreneurship",
+            "title": "Entrepreneurship",
             "description": "Entrepreneurship is an exciting field in Business that offers students the ability to learn how to start and operate a small business while having the independence to achieve their goals.  The Business Department offers an Associate of Science Degree and a Certificate of Achievement in Small Business Management and Entrepreneurship. The Associate Degree and Certificate prepares students for business ownership, including planning, launching, and managing a small business. Students develop a broad foundation of principles, while focusing on key industries in which they may operate. Curriculum exposes students to operations, management, finance, marketing, and other skills necessary for sustained success. Entrepreneurship is, by definition, an interdisciplinary practice, and this program is designed to provide students with essential skills that will help them succeed as business owners in their field of choice.",
             "degrees": ["Associate of Science: Small Business Management and Entrepreneurship", "Certificate of Achievement: Small Business Management and Entrepreneurship"],
             "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
@@ -262,7 +262,7 @@
         },
         {
             "code": 25,
-            "name": "Exercise Science",
+            "title": "Exercise Science",
             "description": "The Physical Education Department offers a diverse curriculum which includes lower division theory courses designed for those who want to complete their Associate of Arts degree in Physical Education and transfer to an institution of higher learning. The Curriculum includes a basic instruction program which provides students a wide variety of movement experiences for the development of physical activity skills, knowledge, and fitness necessary for lifetime wellness; an adapted activities curriculum for students with disabilities; and an intercollegiate athletic program, which offers performance oriented students opportunities for competition.",
             "degrees": ["Associate of Science: Kinesiology", "Associate of Arts for Transfer: Kinesiology", "Certificate of Achievement: Personal Trainer"],
             "degree_types": ["Associate of Science", "AS", "Associate of Arts for Transfer", "ADT", "Certificate of Achievement", "Certificate"],
@@ -272,7 +272,7 @@
         },
         {
             "code": 26,
-            "name": "Fashion",
+            "title": "Fashion",
             "description": "The Fashion program offers a variety of courses that allow students to develop skills to pursue careers in Fashion Design, Fashion Merchandising Merchandising, Computer Fashion Technology: Design, Computer Fashion Technology: Merchandising, and related fashion careers. With a high emphasis on technology, both computer and equipment-based, students obtain skills that assist them in securing positions and advance in the fashion field. Coursework is supplemented with participation in field excursions, guest lecturers, work experience positions, and opportunities that involve the local fashion community. Much of the emphasis of the program is on active student learning and participation in class and campus activities that involve leadership and planning. A strong advisory board of fashion professionals provides input to the program and supports various activities on and off campus.",
             "degrees": ["Associate of Science: Fashion Design", "Associate of Science: Fashion Merchandising", "Associate of Science: Computer Fashion Technology - Design", "Associate of Science: Computer Fashion Technology - Marketing", "Certificate of Achievement: Fashion Design", "Certificate of Achievement: Fashion Merchandising", "Certificate of Achievement: Computer Fashional Technology - Design", "Certificate of Achievement: Computer Fashion Technology - Merchandising"],
             "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
@@ -282,7 +282,7 @@
         },
         {
             "code": 61,
-            "name": "Fermentation Management",
+            "title": "Fermentation Management",
             "description": "Students in the Certificate of Achievement in Fermentation will have the opportunity to study the business aspect of the industry.  Studying the production of beer, wine, sprits and other fermented beverages along with business courses in sales and marketing, law, accounting, importing, distribution and operations will prepare students for employment in the beverage industry.",
             "degrees": ["Certificate of Achievement: Fermentation Managemenet"],
             "degree_types": ["Certificate of Achievement", "Certificate"],
@@ -292,7 +292,7 @@
         },
         {
             "code": 62,
-            "name": "French",
+            "title": "French",
             "description": "Program provides training in the fundamental skills of understanding, speaking, reading and writing the language, and increases one’s familiarity with the French language. From a vocational standpoint, the curriculum will provide a student with skills useful in translating, interpreting, teaching, linguistic or literary research, music, foreign trade, or missionary work. The major requires 26 units in French, unless the student has completed two years of French in high school (with a “C” average or better). In this case, the department will determine the courses necessary to complete the requirements.",
             "degrees": ["Associate of Arts: French"],
             "degree_types": ["Associate of Arts", "AA"],
@@ -302,7 +302,7 @@
         },
         {
             "code": 27,
-            "name": "Geographic Information Systems",
+            "title": "Geographic Information Systems",
             "description": "Geographic Information Systems (GIS) integrate hardware, software and data for capturing, managing, analyzing, and displaying all forms of geographically referenced information. GIS connects the world we live in by allowing us to view, understand, question, interpret, and visualize data in ways that reveal relationships, patterns, and trends in the form of maps, globes, reports, and charts.",
             "degrees": ["Associate of Science: Geographic Information Systems", "Certificate of Performance: Geographic Information Systems Technician"],
             "degree_types": ["Associate of Science", "AS", "Certificate of Performance", "Certificate"],
@@ -312,7 +312,7 @@
         },
         {
             "code": 28,
-            "name": "Geography",
+            "title": "Geography",
             "description": "Geography is the study of cultural systems, the natural environment, and human-environment interactions. Geographers examine spatial distributions and patterns in a wide range of topics, such as urban sprawl, global climate change, the spread of religions, the growth of the global economy, migration trends, and the impact of environmental hazards. Depending on the course, geography is considered either a natural science (e.g., physical geography) or a social science (e.g., world regional geography). Regardless of area of emphasis, geographers understand the importance of scale (from local to global) when investigating real-world problems",
             "degrees": ["Associate of Arts: Geography", "Associate of Arts for Transfer: Geography"],
             "degree_types": ["Associate of Arts", "AA", "Associate of Arts for Transfer", "ADT"],
@@ -322,7 +322,7 @@
         },
         {
             "code": 29,
-            "name": "Geology",
+            "title": "Geology",
             "description": "The Associate in Science in Geology for Transfer is intended for students who plan to complete a bachelor’s degree in Economics or a related major in the California State University (CSU) system. It is accepted by some but not all CSU campuses. Students who complete this degree and transfer to a participating CSU campus will be required to complete no more than 60 units after transfer to earn a bachelor’s degree. It may not be appropriate preparation for students transferring to a CSU campus that does not accept the degree.",
             "degrees": ["Associate of Science for Transfer: Geology"],
             "degree_types": ["Associate of Science for Transfer", "ADT"],
@@ -332,7 +332,7 @@
         },
         {
             "code": 30,
-            "name": "Health Information Technology",
+            "title": "Health Information Technology",
             "description": "The Associate of Science Degree in Health Information Technology is designed to prepare students to work in a variety of settings, including hospitals, outpatient clinics, behavioral health facilities, government health agencies, long term care facilities, and various health information industry vendors.",
             "degrees": ["Associate of Science: Health Information Technology", "Bachelor of Science: Health Information Technology", "Certificate of Achievement: Coding Specialist"],
             "degree_types": ["Associate of Science", "AS", "Bachelor of Science", "BS", "Certificate of Achievement", "Certificate"],
@@ -342,7 +342,7 @@
         },
         {
             "code": 31,
-            "name": "History",
+            "title": "History",
             "description": "History is the study of human experience from the dawn of time to the present. It examines people, institutions, ideas and events of the past and the present. The primary objectives of the History program are: fulfillment of general education requirements for American Institutions, Humanities and Social Sciences; completion of the Associate of Arts degree; and preparation for transfer to four-year institutions and completion of general education requirements for students enrolled in four-year institutions.",
             "degrees": ["Associate of Arts: History", "Associate of Arts for Transfer: History"],
             "degree_types": ["Associate of Arts", "AA", "Associate of Arts for Transfer", "ADT"],
@@ -352,7 +352,7 @@
         },
         {
             "code": 32,
-            "name": "Hospitality",
+            "title": "Hospitality",
             "description": "Students gain solid business knowledge and comprehensive skills designed to help prepare for a career in the destination, event and meeting industries for any of the corporate, association, social, leisure, or hospitality and tourism arenas. Curriculum exposes students to develop and enhance sales techniques, efficiently and effectively research locations and activities available, and gain business skills necessary for success in providing the highest level of guest service and satisfaction. Extensive techniques are examined for increasing organizational skills and the attention to detail necessary to carry out events of all sizes. Coursework is supplemented by numerous field excursions and networking opportunities within San Diego county which is one of the most prominent locations for destination and event management in the United States.",
             "degrees": ["Associate of Science: Event Management", "Associate of Science: Hotel Management", "Certificate of Achievement: Event Management", "Certificate of Achievement: Hotel Management"],
             "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
@@ -362,7 +362,7 @@
         },
         {
             "code": 33,
-            "name": "Humanities",
+            "title": "Humanities",
             "description": "The Associate of Arts degree in Humanities and Religious Studies will Fulfill all Humanities GE transfer requirements, prepare students for upper division work in Humanities and/or Religious Studies, and develop a wide-ranging knowledge of human cultures and civilizations both past and present.",
             "degrees": ["Associate of Arts: Humanities and Religious Studies"],
             "degree_types": ["Associate of Arts", "AA"],
@@ -372,7 +372,7 @@
         },
         {
             "code": 59,
-            "name": "Interior Design",
+            "title": "Interior Design",
             "description": "The Interior Design Program offers a comprehensive and professionally relevant curriculum. It includes technical knowledge and skill, creative problem solving, environmental applications, critical thinking and professional practice. The program is Accredited by the National Kitchen and Bath Association (NKBA). The AS degree is recommended for students planning to take the National Council for Interior Design Qualification (NCIDQ) exam or the California Council of Interior Design Certification (CCIDC) IDEX exam.",
             "degrees": ["Associate of Science: Interior Design", "Certificate of Achievement: Interior Design"],
             "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
@@ -382,7 +382,7 @@
         },
         {
             "code": 34,
-            "name": "Japanese",
+            "title": "Japanese",
             "description": "Program provides training in the fundamental skills of understanding, speaking, reading and writing the language, and increases one’s familiarity with the Japanese language. From a vocational standpoint, the curriculum will provide a student with skills useful in translating, interpreting, teaching, linguistic or literary research, music, foreign trade, or missionary work. The major requires 26 units in Japanese, unless the student has completed two years of Japanese in high school (with a “C” average or better). In this case, the department will determine the courses necessary to complete the requirements.",
             "degrees": ["Associate of Arts: Japanese"],
             "degree_types": ["Associate of Arts", "AA"],
@@ -392,7 +392,7 @@
         },
         {
             "code": 35,
-            "name": "Journalism",
+            "title": "Journalism",
             "description": "The Journalism program encompasses theoretical and practical training in print and online news media, including newspapers and online media, as well as in the field of public relations. This program is designed to prepare students for employment in the fields of print and online media and public relations",
             "degrees": ["Associate of Arts: Journalism", "Associate of Arts for Transfer: Journalism", "Certificate of Achievement: Journalism"],
             "degree_types": ["Associate of Arts", "AA"],
@@ -402,7 +402,7 @@
         },
         {
             "code": 36,
-            "name": "Liberal Arts",
+            "title": "Liberal Arts",
             "description": "The Honors Global Competencies Certificate of Achievement provides an interdisciplinary and systemic approach in order to prepare students for the highly diverse, technologically-rich, and multilingual global society in which we live. The Certificate offers students the opportunity to gain a global perspective through completion of coursework in intercultural competencies, communication skills, and technology skills. This certificate helps students to transfer to four-year institutions in concert with the Honors designation. It prepares students for study and work throughout the world in professional fields such as international studies, intercultural studies, language studies, international business, international law, political science, comparative literature, environmental studies, history, technology, social sciences, humanities, teaching, and more.",
             "degrees": ["Certificate of Achievement: Honors Global Competencies Certificate", "Certificate of Performance: Honors Global Competencies Certificate"],
             "degree_types": ["Certificate of Achievement", "Certificate of Performance", "Certificate"],
@@ -412,7 +412,7 @@
         },
         {
             "code": 60,
-            "name": "Liberal Arts and Sciences",
+            "title": "Liberal Arts and Sciences",
             "description": "The Liberal Arts and Sciences Degree is designed to enable students to complete the requirements for an Associate of Arts Degree prior to transfer to the University of California, California State University or an independent/private college or university.",
             "degrees": ["Associate of Arts: Arts Studies - Art", "Associate of Arts: Arts Studies - Dance", "Associate of Arts: Arts Studies - Music", "Associate of Arts: Business Studies", "Associate of Arts: Language and Humanities Studies - Chinese", "Associate of Arts: Language and Humanities Studies - English", "Associate of Arts: Language and Humanities Studies - French", "Associate of Arts: Language and Humanities Studies - German", "Associate of Arts: Language and Humanities Studies - Italian", "Associate of Arts: Language and Humanities Studies - Japanese", "Associate of Arts: Language and Humanities Studies - Latin", "Associate of Arts: Language and Humanities Studies - Philosophy", "Associate of Arts: Language and Humanities Studies - Russian", "Associate of Arts: Language and Humanities Studies - Spanish", "Associate of Arts: Language and Humanities Studies - Tagalog", "Associate of Arts: Language and Humanities Studies - Vietnamese", "Associate of Arts: Mathematics and Pre-Engineering Studies - Mathematics", "Associate of Arts: Mathematics and Pre-Engineering Studies - Computer Science", "Associate of Arts: Mathematics and Pre-Engineering Studies - Engineering", "Associate of Arts: Science Studies - Biological Sciences", "Associate of Arts: Science Studies - Physical Sciences - Chemistry", "Associate of Arts: Science Studies - Physical Sciences - Physics", "Associate of Arts: Science Studies - Physical Sciences - Earth Sciences", "Associate of Arts: Science Studies - Physical Sciences - Pre-Nursing", "Associate of Arts: Science Studies - Physical Sciences - Kinesiology and Nutrition", "Associate of Arts: Science Studies - Physical Sciences - Psychology", "Associate of Arts: Social and Behavioral Sciences - Anthropology", "Associate of Arts: Social and Behavioral Sciences - Child Development", "Associate of Arts: Social and Behavioral Sciences - Economics", "Associate of Arts: Social and Behavioral Sciences - Human Development", "Associate of Arts: Social and Behavioral Sciences - History", "Associate of Arts: Social and Behavioral Sciences - Political Science", "Associate of Arts: Social and Behavioral Sciences - Psychology","Associate of Arts: Social and Behavioral Sciences - Social Sciences", "Associate of Arts: Social and Behavioral Sciences - Sociology", "Associate of Arts: Social and Behavioral Sciences - Women's Studies", "Certificate of Achievement: CSU General Education", "Certificate of Achievement: Intersegmental General Education Transfer Curriculum (IGETC)"],
             "degree_types": ["Associate of Arts", "AA", "Certificate of Achievement", "Certificate"],
@@ -422,7 +422,7 @@
         },
         {
             "code": 37,
-            "name": "Liberal Studies",
+            "title": "Liberal Studies",
             "description": "The Liberal Studies degree is an interdisciplinary program designed for students interested in a career in elementary education. Required courses in the degree to serve to prepare student for transfer to public and private baccalaureate degree-offering colleges and universities. The curriculum included courses selected from Language and Rationality, Natural Sciences, Humanities, and Social and Behavioral Sciences.",
             "degrees": ["Associate of Arts: Elementary Education Preparation"],
             "degree_types": ["Associate of Arts", "AA"],
@@ -432,7 +432,7 @@
         },
         {
             "code": 38, 
-            "name": "Marketing",
+            "title": "Marketing",
             "description": "Designed for the student interested in marketing as a career and tailored to develop competency in merchandising, retailing, and wholesaling, in both large and small businesses. Students are encouraged to work part-time while attending college. Successful completion should lead to a full-time position or serve as a foundation for further education. Students planning to transfer to a four-year college or university should select the Business Administration major.",
             "degrees": ["Associate of Science: Marketing", "Certificate of Achievement: Marketing"],
             "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
@@ -442,7 +442,7 @@
         },
         {
             "code": 39,
-            "name": "Mathematics",
+            "title": "Mathematics",
             "description": "Successful completion of this curriculum will develop competence in mathematics through differential and integral calculus, providing an adequate background for employment in many technological and scientific areas as well as providing a firm foundation for students planning advanced study.",
             "degrees": ["Associate of Arts: Mathematics", "Associate of Arts: Applied Mathematics", "Associate of Science for Transfer: Mathematics"],
             "degree_types": ["Associate of Arts", "AS", "Associate of Science for Transfer", "ADT"],
@@ -452,7 +452,7 @@
         },
         {
             "code": 40,
-            "name": "Medical Assisting",
+            "title": "Medical Assisting",
             "description": "The Medical Assisting program offers a two semester Certificate of Achievement in Medical Assisting. All students who successfully complete the Medical Assisting program will be awarded a Certificate of Achievement. Graduates are eligible to sit for several national and state certification and registration exams. Students who have been awarded a Certificate of Achievement in Medical Assisting may continue and complete the additional courses needed for the Associate Degree in Medical Assisting.",
             "degrees": ["Associate of Science: Medical Assisting", "Certificate of Achivement: Medical Assisting"],
             "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
@@ -462,7 +462,7 @@
         },
         {
             "code": 41,
-            "name": "Multimedia",
+            "title": "Multimedia",
             "description": "This program is designed to provide students of multimedia the opportunity to develop necessary foundation skills, master the tools and processes, and undergo industry standards production experiences. The program provides students with comprehensive approaches to the fields of Game Design and Development, Visual Communication, 3D Modeling and Animation and general Multimedia. The program curriculum is structured so as to provide students with a balance between aesthetic and practical design application. Upon completion of their program, students will be qualified for entry-level employment in their chosen emphasis.",
             "degrees": ["Certificate of Achievement: 3D Modeling and Animation", "Certificate of Achievement: Video Game Design and Development", "Certificate of Achievement: Interactive Media Production", "Associate of Science: Visual Communication", "Associate of Science: Video Game Design and Development"],
             "degree_types": ["Certificate of Achievement", "Certificate", "Associate of Science", "AS"],
@@ -472,7 +472,7 @@
         },
         {
             "code": 42,
-            "name": "Music",
+            "title": "Music",
             "description": "The academic program in Music is designed to provide students with the fundamental skills for most musical pursuits while remaining flexible so that students may determine which music courses are most suitable to meet their individual goals. It is recommended that students seek advice from a member of the Music faculty.",
             "degrees": ["Associate of Arts: Music Studies", "Certificate of Performance: Music Composition", "Certificate of Performance: Music Technology", "Certificate of Performance: Music Theory"],
             "degree_types": ["Associate of Arts", "AA", "Certificate of Performance", "Certificate"],
@@ -482,7 +482,7 @@
         },
         {
             "code": 43,
-            "name": "Nutrition",
+            "title": "Nutrition",
             "description": "The Nutrition Program provides three excellent academic pathways in the field of dietetics and nutrition: Courses transfer to a four-year institution in preparation to become a Registered Dietitian, a Dietetic Service Supervisor Certificate of Achievement, and an Associate Degree.Students planning to transfer to a four-year institution should consult the Counseling Department and a Nutrition Advisor for assistance in program planning.",
             "degrees": ["Associate of Science: Nutrition", "Associate of Science: Nutrition and Fitness", "Certificate of Achievement: Dietary Manager", "Certificate of Achievement: Nutrition", "Certificate of Achievement: Nutrition and Fitness"],
             "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
@@ -492,7 +492,7 @@
         },
         {
             "code": 44,
-            "name": "Philosophy",
+            "title": "Philosophy",
             "description": "Philosophy is the practice of developing the skills and strategies for answering fundamental questions about human existence. Philosophers analyze the concepts through which we acquire knowledge of reality and in terms of which human actions and practices acquire value and meaning. Students are exposed to both the history of discussions of these topics as well as contemporary treatments in order to foster an understanding of how these discussions are related to contemporary life. Philosophers use reasoned argument to evaluate beliefs, focusing especially on what evidence there is for a belief, whether it fits well with other beliefs or contradicts them, and whether we can prove it or disprove it.",
             "degrees": ["Associate of Arts: Philosophy", "Associate of Arts for Transfer: Philosophy"],
             "degree_types": ["Associate of Arts", "AA", "Associate of Arts for Transfer", "ADT"],
@@ -502,7 +502,7 @@
         },
         {
             "code": 45,
-            "name": "Phlebotomy",
+            "title": "Phlebotomy",
             "description": "The Phlebotomy Training Program offers a one semester Certificate of Performance in Phlebotomy. Students who successfully complete the Phlebotomy Training Program and receive a Certificate of Performance are eligible to apply for State of California certification as a Certified Phlebotomy Technician 1 (CPT 1) and sit for several state and national examinations.",
             "degrees": ["Certificate of Performance: Phlebotomy Training"],
             "degree_types": ["Certificate of Performance", "Certificate"],
@@ -512,7 +512,7 @@
         },
         {
             "code": 46,
-            "name": "Physical Sciences",
+            "title": "Physical Sciences",
             "description": "Physical Sciences is a multidisciplinary program promoting an appreciation for various disciplines such as physics, chemistry, astronomy and earth sciences by exposing students to various methodologies.",
             "degrees": ["Associate of Science: Physical Sciences", "Certificate of Achievement: Physical Sciences"],
             "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
@@ -522,7 +522,7 @@
         },
         {
             "code": 47,
-            "name": "Physical Therapist Assistant",
+            "title": "Physical Therapist Assistant",
             "description": "The Physical Therapist Assistant Program prepares the student for employment as a physical therapist assistant. The physical therapist assistant, working under the supervision of a registered physical therapist, assists in the provision of physical therapy services, such as electrotherapy, hydrotherapy, thermotherapy, massage, therapeutic exercise and rehabilitation activities.",
             "degrees": ["Associate of Science: Physical Therapist Assistant"],
             "degree_types": ["Associate of Science", "AS"],
@@ -532,7 +532,7 @@
         },
         {
             "code": 48,
-            "name": "Physics",
+            "title": "Physics",
             "description": "Upon completion of the required pattern of physics courses and other degree graduation requirements an Associate of Science Degree in Physics will be granted. A certificate program is also offered in physics.",
             "degrees": ["Associate of Science: Physics", "Associate of Science for Transfer: Physics", "Certificate of Achievement: Physics"],
             "degree_types": ["Associate of Science", "AS", "Associate of Science for Transfer", "ADT", "Certificate of Achievement", "Certificate"],
@@ -542,7 +542,7 @@
         },
         {
             "code": 49,
-            "name": "Political Science",
+            "title": "Political Science",
             "description": "Political science is the study of human behavior as it relates to political situations. It involves the examination of institutions, processes, people, ideas and policies. The study of political science develops critical thinking, cultural literacy, and other skills important for an active and informed citizenry.",
             "degrees": ["Associate of Arts: Political Science", "Associate of Arts for Transfer: Political Science"],
             "degree_types": ["Associate of Arts", "AA", "Associate of Arts for Transfer", "ADT"],
@@ -552,7 +552,7 @@
         },
         {
             "code": 50,
-            "name": "Psychology",
+            "title": "Psychology",
             "description": "The Psychology program is suited to the needs of both the two year student and the transfer student who plan to major or minor in Psychology or related fields. It will provide the student with a greater understanding of behavior. Upper division and graduate studies can lead to vocations in teaching, research, counseling, and other areas. An upper division minor in Psychology may be an important asset to majors in other fields.",
             "degrees": ["Associate of Arts: Psychology", "Associate of Arts for Transfer: Psychology"],
             "degree_types": ["Associate of Arts", "AA", "Associate of Arts for Transfer", "ADT"],
@@ -562,7 +562,7 @@
         },
         {
             "code": 51,
-            "name": "Radiologic Technology",
+            "title": "Radiologic Technology",
             "description": "The program prepares the student for certification as a full diagnostic radiologic technologist. Training includes radiographic equipment operation, exposure and image processing principles, radiographic procedures, radiation protection, patient care and directed clinical practice. The program runs for 24 months, including two summer sessions. Upon completion of the program, the student will be awarded a certificate of achievement and Associate of Science degree. Graduates of program are eligible to apply for certification by the American Registry of Radiologic Technologists and the state of California (CRT and Fluoroscopy). The program is accredited by the Joint Review Committee on Education in Radiologic Technology (JRCERT).",
             "degrees": ["Associate of Science: Radiologic Technology", "Certificate of Achievement: Radiologic Technology"],
             "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
@@ -572,7 +572,7 @@
         },
         {
             "code": 52,
-            "name": "Real Estate",
+            "title": "Real Estate",
             "description": "The Real Estate program offers a variety of courses which provide students with the technical and practical knowledge needed to succeed in the Real Estate industry. This includes courses that meet the State’s educational requirements for the broker’s examination and electives for the salesperson’s license. Students planning to transfer to a four-year college or university should select the Business Administration major.",
             "degrees": ["Associate of Science: Real Estate"],
             "degree_types": ["Associate of Science", "AS"],
@@ -582,7 +582,7 @@
         },
         {
             "code": 63,
-            "name": "Retail Management",
+            "title": "Retail Management",
             "description": "The Retail Management program is an accredited by the Western Association of Food Chains and provides you with the skills retailers are actively looking for in their employees. Retail is growing and the need for people with skills in budgeting, leadership, management, marketing, and technology is at an all-time high. The Retail Management Certificate will provide you with these valuable skills plus serve as the first step towards an exciting career in retail.",
             "degrees": ["Certificate of Achievement: Retail Management"],
             "degree_types": ["Certificate of Achievement", "Certificate"],
@@ -592,7 +592,7 @@
         },
         {
             "code": 53,
-            "name": "Social Sciences",
+            "title": "Social Sciences",
             "description": "Social Sciences is a multidisciplinary program promoting an appreciation for the interrelatedness of Geography, History, Philosophy and Political Sciences by exposing students to their varied methodologies. The Social Science Program prepares students for transfer into either a major in Social Sciences or for the single subject teaching credential at four year institutions.",
             "degrees": ["Associate of Arts: Social Sciences", "Certificate of Performance: Global Culture Studies"],
             "degree_types": ["Associate of Arts", "AA", "Certificate of Performance", "Certificate"],
@@ -602,7 +602,7 @@
         },
         {
             "code": 54,
-            "name": "Sociology",
+            "title": "Sociology",
             "description": "The Sociology Program is suited to the needs of both the two-year student and the transfer student who wish to major or minor in Sociology or related fields. It is designed to provide the student with a greater understanding of human interactions, social processes, and social structures.",
             "degrees": ["Associate of Arts: Sociology", "Associate of Arts for Transfer: Sociology"],
             "degree_types": ["Associate of Arts", "AA", "Associate of Arts for Transfer", "ADT"],
@@ -612,7 +612,7 @@
         },
         {
             "code": 55,
-            "name": "Spanish",
+            "title": "Spanish",
             "description": "Program provides training in the fundamental skills of understanding, speaking, reading and writing the language, and increases one’s familiarity with the Spanish language. From a vocational standpoint, the curriculum will provide a student with skills useful in translating, interpreting, teaching, linguistic or literary research, music, foreign trade, or missionary work. The major requires 26 units in Spanish, unless the student has completed two years of Spanish in high school (with a “C” average or better). In this case, the department will determine the courses necessary to complete the requirements.",
             "degrees": ["Associate of Arts: Spanish", "Associate of Arts for Transfer: Spanish"],
             "degree_types": ["Associate of Arts", "AA", "Associate of Arts for Transfer", "ADT"],
@@ -622,7 +622,7 @@
         },
         {
             "code": 56,
-            "name": "Sustainability",
+            "title": "Sustainability",
             "description": "The Associate of Arts degree in Sustainability provides students with an interdisciplinary understanding of the biological, social and economic considerations of issues related to the environment and environmental degradation.",
             "degrees": ["Associate of Arts: Sustainability"],
             "degree_types": ["Associate of Arts", "AA"],
@@ -632,7 +632,7 @@
         },
         {
             "code": 57,
-            "name": "Web Development",
+            "title": "Web Development",
             "description": "The Web Design program serves students entering fields that need Web Design skills and knowledge and working professionals who need to learn new skills for their current job or for career advancement. The program prepares students to design and create Web sites, including integrating databases and content management systems, creating multimedia elements, and editing content to follow writing for the Web guidelines. Students acquire a solid foundation in usability, accessibility, and design principles, as well as technical skills at hand coding HTML, CSS, basic PHP and MySQL. Students use industry standard software and practices to prepare for entry level careers.",
             "degrees": ["Associate of Science: Web Design", "Certificate of Achievement: Web Design"],
             "degree_types": ["Associate of Science", "AS", "Certificate of Achievement", "Certificate"],
@@ -642,7 +642,7 @@
         },
         {
             "code": 58,
-            "name": "Women's Studies",
+            "title": "Women's Studies",
             "description": "The Women’s Studies Certificate of Performance is awarded to students who successfully have completed an interdisciplinary curriculum designed to explore the past, present and future of women from a multi-cultural perspective. The courses in this concentration will explore how women’s lives have been affected by society’s values, traditions, and institutions and how language, belief systems, political structures and economic systems shape the status of women, as well as men, in society and culture",
             "degrees": ["Certificate of Performance: Women's Studies"],
             "degree_types": ["Certificate of Performance", "Certificate"],
@@ -652,7 +652,7 @@
         },
         {
             "code": 65,
-            "name": "Teacher Education",
+            "title": "Teacher Education",
             "description": "",
             "degrees": ["Associate of Arts: Elementary Education Preparation"],
             "degree_types": ["AA"],
