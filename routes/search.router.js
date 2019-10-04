@@ -25,6 +25,8 @@ const CourseEngine = new SearchEngine("Course");
 const Router = express.Router();
 
 /**
+ * Displays the routes of /search
+ * 
  * @name GET/
  * @function
  * @memberof module:routes/search~searchRouter
@@ -40,6 +42,10 @@ Router.get("/", (req, res) => {
  * @name GET/programs
  * @function
  * @memberof module:routes/search~searchRouter
+ * 
+ * @param {string} q A string to query the Programs Search Engine with.
+ * @example
+ * // /programs?q=[query string]
  */
 Router.get("/programs", async (req, res) => {
     await ProgramEngine._init()
@@ -72,6 +78,10 @@ Router.get("/programs", async (req, res) => {
  * @name GET/courses
  * @function
  * @memberof module:routes/search~searchRouter
+ * 
+ * @param {string} q A string to query the Courses Search Engine with.
+ * @example
+ * // /courses?q=[query string]
  */
 Router.get("/courses", async(req, res) => {
     await CourseEngine._init()
@@ -104,6 +114,10 @@ Router.get("/courses", async(req, res) => {
  * @name GET/careers
  * @function
  * @memberof module:routes/search~searchRouter
+ * 
+ * @param {string} q A string to query the Careers Search Engine with.
+ * @example
+ * // /careers?q=[query string]
  */
 Router.get("/careers", async(req, res) => {
     await CareerEngine._init()

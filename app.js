@@ -7,11 +7,14 @@
  * @requires {@link https://www.npmjs.com/package/body-parser| body-parser}
  * @requires {@link https://nodejs.org/api/http.html| http}
  * @requires {@link https://mongoosejs.com/docs/guide.html| mongoose}
+ * @requires {@link https://www.npmjs.com/package/request-promise|request-promise}
  * 
  * @requires routes
  */
 require("dotenv").config();
 const PORT = process.env.PORT || 9000;
+
+// TIME CONSTANTS
 const ONE_SECOND = 1000;
 const ONE_MINUTE = ONE_SECOND * 60;
 const ONE_HOUR = ONE_MINUTE * 60;
@@ -51,7 +54,7 @@ setInterval(() => {
     .then(res => COURSES = res);
 }, ONE_MINUTE * 30);
 
-// Execute once on init
+// Pulls additional program data from inifinite-spire into search engine data. Executes once on init.
 rp(process.env.SDMESA_ONET_URI + "/program?detail=true", {json: true})
 .then(res => {
     console.log(res["programs"][0])
@@ -110,6 +113,8 @@ app.use("/search", SearchRouter);
 app.use("/docs", express.static("out"));
 
 /**
+ * Displays list of available routes on /
+ * 
  * @name GET/
  * @function
  * @memberof module:MesaSearchEngine~app
@@ -119,6 +124,17 @@ app.get("/", (req, res) => {
     res.status(200).send(html);
 })
 
+/**
+ * Retrieves course information from a course id.
+ * 
+ * @name GET/course/:id
+ * @function
+ * @memberof module:MesaSearchEngine~app
+ * 
+ * @param {string} id A valid course id.
+ * @example
+ * // /course/15-1134.00
+ */
 app.get("/course/:id", (req, res) => {
     let i = Object.keys(COURSES).indexOf(req.params.id);
     if(i !== -1) {
@@ -128,6 +144,17 @@ app.get("/course/:id", (req, res) => {
     }
 })
 
+/**
+ * Retrieves program information from a program id.
+ * 
+ * @name GET/program/:id
+ * @function
+ * @memberof module:MesaSearchEngine~app
+ * 
+ * @param {string} id A valid program id.
+ * @example
+ * // /program/1
+ */
 app.get("/program/:id", (req, res) => {
     let i = PROGRAMS.map(program => program["code"]).indexOf(+req.params.id);
     if(i !== -1) {
