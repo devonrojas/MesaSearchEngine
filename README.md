@@ -5,6 +5,7 @@ The MesaSearchEngine was created to provide a search functionality to San Diego 
 
 Potential improvements:
 - Figure out a way to work around cortical.io's request limiting to use Fingerprint comparison methods for better search results
+- Improve document relevancy for search terms (e.g. "dance" returns Engineering documents)
 - Increase response time to client from Search Engine
 - ???
 

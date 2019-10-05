@@ -40,10 +40,8 @@ setInterval(() => {
     http.get("http://polar-wave-14549.herokuapp.com/");
     rp(process.env.SDMESA_ONET_URI + "/program?detail=true", {json: true})
     .then(res => {
-        console.log(res["programs"][0])
         PROGRAMS = res["programs"];
         PROGRAMS.map(program => {
-            console.log(program);
             let p = other_program_data.find(p => p["code"] === program["code"]);
             program["description"] = p["description"];
             return program;
